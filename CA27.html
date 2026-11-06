@@ -1,0 +1,1534 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Summer in the Rockies</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field-guide notebook — slim sticky section nav, one reading column, day "leaves" that fold open, glacial-water accent */
+:root{
+  --bg:#f2f5f4; --paper:#ffffff; --ink:#13242a; --muted:#566a70; --line:#d5dfdf;
+  --glacier:#0d6e78; --glacier-soft:#d9ecee; --pine:#2f4f3e; --pine-soft:#e2ebe4;
+  --amber:#9a5b00; --amber-soft:#fbeed6; --rose:#a3343a; --rose-soft:#f8e1e1;
+  --display:"Gloock", "Georgia", "Times New Roman", serif;
+  --body:"Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --s1:.75rem; --s2:.875rem; --s3:1rem; --s4:1.25rem; --s5:1.6rem; --s6:2.3rem;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1719; --paper:#162225; --ink:#e3eceb; --muted:#9cb0b3; --line:#2a3a3e;
+  --glacier:#5cc3cc; --glacier-soft:#163a3e; --pine:#9fcfae; --pine-soft:#1a3125;
+  --amber:#f0b45a; --amber-soft:#3a2a10; --rose:#f08a8f; --rose-soft:#3d1c1e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1719; --paper:#162225; --ink:#e3eceb; --muted:#9cb0b3; --line:#2a3a3e;
+  --glacier:#5cc3cc; --glacier-soft:#163a3e; --pine:#9fcfae; --pine-soft:#1a3125;
+  --amber:#f0b45a; --amber-soft:#3a2a10; --rose:#f08a8f; --rose-soft:#3d1c1e; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:var(--s3);line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--glacier);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--glacier);outline-offset:2px;border-radius:4px}
+.wrap{max-width:860px;margin:0 auto;padding-block:1.5rem 4rem}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.15;margin:0}
+h2{font-size:var(--s6)} h3{font-size:var(--s5)}
+.eyebrow{font-family:var(--mono);font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+p{margin:0}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);
+  margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px))) 0;padding:.5rem max(16px,env(safe-area-inset-left,0px))}
+nav.toc .row{max-width:860px;margin:0 auto;display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;align-items:center}
+nav.toc a{flex:none;font-size:var(--s2);font-weight:500;color:var(--muted);text-decoration:none;padding:.35rem .6rem;border-radius:99px}
+nav.toc a:hover{color:var(--ink);background:var(--paper)}
+#themeBtn{flex:none;margin-left:auto;font:500 var(--s1) var(--mono);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:99px;padding:.3rem .7rem;cursor:pointer}
+
+/* hero */
+header.hero{padding-block:2rem 1.5rem;display:grid;gap:1rem}
+header.hero h1{font-size:clamp(2.4rem,7vw,4rem)}
+header.hero h1 em{font-style:normal;color:var(--glacier)}
+.lede{font-size:var(--s4);max-width:62ch;color:var(--muted)}
+.statusbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:.35rem;font:500 var(--s1) var(--mono);letter-spacing:.03em;padding:.2rem .55rem;border-radius:99px;border:1px solid var(--line);background:var(--paper);white-space:nowrap}
+.chip.prop{color:var(--glacier);border-color:var(--glacier)}
+.chip.fixed{color:var(--pine);background:var(--pine-soft);border-color:transparent}
+.chip.flex{color:var(--muted)}
+.chip.book{color:var(--amber);background:var(--amber-soft);border-color:transparent}
+.chip.warn{color:var(--rose);background:var(--rose-soft);border-color:transparent}
+
+section{padding-top:2rem;display:grid;gap:1.25rem}
+nav.toc a[aria-current="page"]{color:var(--paper);background:var(--glacier)}
+section h3{font-size:var(--s4);margin-top:.5rem}
+.hotels{display:grid;gap:1rem}
+.hcity{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.25rem 1rem .75rem}
+.hcity h4{font:600 var(--s1) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--glacier);margin:.75rem 0 .25rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.hcity h4 span{color:var(--muted)}
+.hrow{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;padding:.6rem 0;border-top:1px solid var(--line)}
+.hrow:first-of-type{border-top:0}
+.hrow .pr{font-family:var(--mono);font-size:var(--s1);color:var(--muted);text-align:right;white-space:nowrap}
+.hrow .ds{grid-column:1/-1;font-size:var(--s2);color:var(--muted)}
+.sechead{display:grid;gap:.35rem;border-top:2px solid var(--ink);padding-top:.9rem}
+
+/* facts grid */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.fact{background:var(--paper);padding:1rem;display:grid;gap:.25rem;align-content:start;min-width:0}
+.fact b{font-weight:600}
+.callout{border-left:3px solid var(--rose);background:var(--rose-soft);padding:1rem 1.1rem;border-radius:0 8px 8px 0;display:grid;gap:.5rem}
+.callout.amber{border-color:var(--amber);background:var(--amber-soft)}
+.callout.teal{border-color:var(--glacier);background:var(--glacier-soft)}
+.callout h4{margin:0;font-size:var(--s3);font-weight:700}
+ul.clean{margin:0;padding-left:1.1rem;display:grid;gap:.35rem}
+
+/* route strip */
+.legs{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden}
+.leg{display:grid;grid-template-columns:7.5rem 1fr;gap:.75rem;padding:.75rem 1rem;border-top:1px solid var(--line)}
+.leg:first-child{border-top:0}
+.leg .when{font-family:var(--mono);font-size:var(--s1);color:var(--muted);padding-top:.15rem}
+.leg .what{min-width:0}
+@media (max-width:520px){.leg{grid-template-columns:1fr;gap:.15rem}}
+
+/* map */
+figure.map{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:1rem;display:grid;gap:.75rem}
+.mapbox{overflow-x:auto}
+.mapbox svg{display:block;width:100%;min-width:520px;height:auto}
+figcaption{font-size:var(--s2);color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-size:var(--s2)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.sw{width:22px;height:0;border-top:3px solid var(--glacier)}
+.sw.bus{border-top-color:var(--pine)} .sw.fly{border-top:3px dashed var(--amber)} .sw.train{border-top:3px dotted var(--glacier)} .sw.trip{border-top:2px dashed var(--muted)}
+
+/* days */
+.daytools{display:flex;gap:.5rem;flex-wrap:wrap}
+button.ghost{font:600 var(--s2) var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.45rem .8rem;cursor:pointer}
+button.ghost:hover{border-color:var(--glacier)}
+.citylabel{font-family:var(--mono);font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:var(--glacier);margin-top:1rem}
+details.day{background:var(--paper);border:1px solid var(--line);border-radius:10px}
+details.day+details.day{margin-top:-.5rem}
+details.day>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:3.4rem 1fr auto;gap:.9rem;align-items:center;padding:.9rem 1rem}
+details.day>summary::-webkit-details-marker{display:none}
+.dnum{font-family:var(--display);font-size:2rem;line-height:1;color:var(--glacier);text-align:center}
+.dnum small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--muted);margin-top:.25rem}
+.dsum{min-width:0;display:grid;gap:.15rem}
+.dsum strong{font-size:var(--s4);font-weight:600;line-height:1.25}
+.dsum .meta{font-size:var(--s2);color:var(--muted)}
+.dspend{text-align:right;font-family:var(--mono);font-size:var(--s1);color:var(--muted);white-space:nowrap}
+.dspend b{display:block;font-size:var(--s2);color:var(--ink);font-weight:500}
+.chev{transition:transform .2s;display:inline-block}
+details[open] .chev{transform:rotate(90deg)}
+@media (max-width:560px){details.day>summary{grid-template-columns:2.8rem 1fr}.dspend{grid-column:2;text-align:left}}
+.dbody{border-top:1px solid var(--line);padding:1rem;display:grid;gap:1.1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tl{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.tl li{display:grid;grid-template-columns:4.6rem 1fr;gap:.75rem;padding:.55rem 0;border-top:1px dashed var(--line)}
+.tl li:first-child{border-top:0}
+.tl .t{font-family:var(--mono);font-size:var(--s1);color:var(--muted);padding-top:.2rem}
+.tl .a{min-width:0;display:grid;gap:.15rem}
+.tl .a b{font-weight:600}
+.tl .how{font-size:var(--s2);color:var(--muted)}
+.tl li.move .a b::before{content:"→ ";color:var(--pine)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1rem}
+.box{min-width:0;display:grid;gap:.4rem;align-content:start}
+.box h5{margin:0;font:600 var(--s1) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.box ul{margin:0;padding-left:1rem;display:grid;gap:.3rem;font-size:var(--s2)}
+.daybudget{font-size:var(--s2);background:var(--bg);border-radius:8px;padding:.75rem;overflow-x:auto}
+.daybudget table{width:100%;border-collapse:collapse;min-width:300px}
+.daybudget td{padding:.2rem 0}
+.daybudget td:last-child{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:1rem}
+.daybudget tr.tot td{border-top:1px solid var(--line);font-weight:600;padding-top:.4rem}
+
+/* tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+table.grid{width:100%;border-collapse:collapse;font-size:var(--s2);min-width:600px}
+table.grid th{text-align:left;font:600 var(--s1) var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.65rem .75rem;border-bottom:1px solid var(--line);background:var(--bg)}
+table.grid td{padding:.6rem .75rem;border-top:1px solid var(--line);vertical-align:top}
+table.grid td.r,table.grid th.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.grid tr.sub td{background:var(--bg);font-weight:600}
+
+
+/* summary table */
+table.sumt{min-width:640px}
+table.sumt td{font-size:var(--s2);line-height:1.45}
+table.sumt td.num{font-family:var(--mono);text-align:right;width:3rem}
+table.sumt td.dt{white-space:nowrap}
+table.sumt td.dt b{font-weight:600}
+table.sumt td.dt small.ci{display:block;white-space:normal;color:var(--muted);font-size:var(--s1)}
+table.sumt tr.sumall td{background:var(--bg);font-weight:600;border-top:2px solid var(--ink)}
+table.sumt tr.sumall td span{display:block;font-weight:400;font-size:var(--s1);color:var(--muted)}
+table.sumt tr.sumall td.r{font-size:1.15rem}
+@media (max-width:640px){
+  #summary .tablewrap{overflow:visible;border:0;background:transparent}
+  table.sumt{min-width:0}
+  table.sumt thead{display:none}
+  table.sumt,table.sumt tbody,table.sumt tfoot,table.sumt tr,table.sumt td{display:block;width:100%}
+  table.sumt tr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+  table.sumt td{border:0;padding:3px 0;text-align:left;white-space:normal;display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;min-width:0}
+  table.sumt td::before{content:attr(data-label);font:600 var(--s1) var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  table.sumt td.num,table.sumt td.dt{display:inline-block;width:auto;font-size:1.05rem;font-weight:600;padding-bottom:6px;margin-right:8px;text-align:left}
+  table.sumt td.num::before{content:"Day ";font:inherit;color:inherit;letter-spacing:0;text-transform:none;padding:0}
+  table.sumt td.dt::before{content:none}
+  table.sumt td.num{vertical-align:top}
+  table.sumt td.dt{vertical-align:top;max-width:calc(100% - 4.6rem);margin-right:0}
+  table.sumt td.dt small.ci{font-weight:400;font-size:var(--s1)}
+  table.sumt tfoot tr{background:var(--bg)}
+  table.sumt tr.sumall td{display:block;border:0}
+  table.sumt tr.sumall td::before{content:none}
+}
+/* food */
+.food{display:grid;gap:.75rem}
+.place{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:.75rem 0;border-top:1px solid var(--line)}
+.place:first-of-type{border-top:0}
+.place .nm{font-weight:600}
+.place .pr{font-family:var(--mono);font-size:var(--s1);color:var(--muted);text-align:right;white-space:nowrap}
+.place .ds{grid-column:1/-1;font-size:var(--s2);color:var(--muted)}
+.foodcity{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.5rem 1rem 1rem}
+.foodcity h3{font-size:var(--s4);padding:.6rem 0 .4rem}
+
+/* budget */
+.tiers{display:inline-flex;border:1px solid var(--line);border-radius:99px;background:var(--paper);padding:3px;gap:2px;flex-wrap:wrap}
+.tiers button{font:600 var(--s2) var(--body);border:0;background:transparent;color:var(--muted);padding:.4rem .9rem;border-radius:99px;cursor:pointer}
+.tiers button[aria-pressed="true"]{background:var(--glacier);color:var(--paper)}
+.totals{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.totals div{background:var(--paper);padding:1rem;display:grid;gap:.2rem}
+.totals b{font-family:var(--display);font-weight:400;font-size:var(--s5);font-variant-numeric:tabular-nums}
+.bars{display:grid;gap:.5rem}
+.bar{display:grid;grid-template-columns:8.5rem 1fr 6.5rem;gap:.75rem;align-items:center;font-size:var(--s2)}
+.bar .trk{height:10px;background:var(--bg);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.bar .fill{height:100%;background:var(--glacier);border-radius:99px}
+.bar .v{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+@media (max-width:480px){.bar{grid-template-columns:6.5rem 1fr 5.5rem}}
+
+.ctrls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1.1rem 1.5rem;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1.1rem}
+.ctrl{display:grid;gap:.45rem;align-content:start;min-width:0}
+.ctrl.reset{align-content:end}
+.clabel{font:600 var(--s1) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.chint{font-size:var(--s1);color:var(--muted);line-height:1.4}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.seg button{appearance:none;border:0;background:transparent;color:var(--muted);font:600 var(--s2) var(--body);min-height:40px;padding:.4rem .5rem;border-radius:7px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.seg button:hover{color:var(--ink);background:var(--paper)}
+.seg button[aria-pressed="true"]{background:var(--glacier);color:var(--paper)}
+.seg button:focus-visible{outline:2px solid var(--glacier);outline-offset:2px}
+#resetPlan{width:100%;min-height:46px}
+.hcity{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:0 .75rem}
+.hcity.open{padding:.25rem .75rem .5rem}
+.hc-head{display:flex;justify-content:space-between;gap:1rem;padding:.7rem .4rem .35rem;font-size:var(--s3)}
+details.hcity>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:.75rem;align-items:center;padding:.85rem .25rem;min-height:44px}
+details.hcity>summary::-webkit-details-marker,details.htier>summary::-webkit-details-marker{display:none}
+.hc-t{white-space:nowrap}
+.hc-c{font-size:var(--s2);color:var(--muted);text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hc-c b{color:var(--ink);font-weight:600}
+.tag{display:inline-block;font:600 .68rem var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--glacier);background:var(--glacier-soft);border-radius:99px;padding:.05rem .45rem;margin-right:.25rem}
+details[open]>summary>.chev{transform:rotate(90deg)}
+.chev{display:inline-block;color:var(--muted);font-size:1.1rem;transition:transform .2s}
+.hc-body{display:grid;gap:.5rem;padding:0 0 .75rem}
+details.htier{border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+details.htier>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto auto;gap:.75rem;align-items:center;padding:.6rem .75rem;font:600 var(--s2) var(--body);min-height:44px}
+details.htier>summary .muted{font:500 var(--s1) var(--mono)}
+details.htier[open]{background:var(--paper)}
+details.htier .hrow{margin:0 .35rem .35rem}
+label.pick{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;cursor:pointer;border-radius:8px;padding:.55rem .5rem;border:1px solid transparent}
+label.pick:hover{background:var(--bg)}
+label.pick .nm{display:flex;gap:.55rem;align-items:baseline;min-width:0}
+label.pick input{accent-color:var(--glacier);flex:none;width:1rem;height:1rem;transform:translateY(2px)}
+label.pick:has(input:checked){background:var(--glacier-soft);border-color:var(--glacier)}
+label.pick .pr{font-family:var(--mono);font-size:var(--s1);color:var(--muted);text-align:right;white-space:nowrap}
+label.pick .ds{grid-column:1/-1;padding-left:1.55rem;font-size:var(--s2);color:var(--muted)}
+@media (max-width:560px){details.hcity>summary{grid-template-columns:1fr auto}.hc-c{grid-column:1/-1;grid-row:2;text-align:left;white-space:normal}.seg button{font-size:var(--s1);padding:.4rem .3rem}}
+.sticky{position:sticky;top:calc(env(safe-area-inset-top,0px) + 2.9rem);z-index:4;display:flex;gap:.75rem;align-items:baseline;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.55rem .9rem;font-size:var(--s2)}
+.sticky b{font-family:var(--display);font-weight:400;font-size:var(--s4)}
+.gap{font-family:var(--mono);font-size:var(--s1)}
+.gap.ok{color:var(--pine)} .gap.over{color:var(--rose)} .gap.under{color:var(--glacier)}
+.hsels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1rem;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1.1rem}
+.hsel{display:grid;gap:.4rem;min-width:0}
+.hsel label{font-size:var(--s3)}
+.hsel select{width:100%;min-height:46px;font:500 var(--s2) var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.5rem .75rem;cursor:pointer}
+.hsel select:hover{border-color:var(--glacier)}
+.hsel select:focus-visible{outline:2px solid var(--glacier);outline-offset:2px}
+.hsel .hn{font-size:var(--s1);color:var(--muted);line-height:1.45}
+.fcards{display:grid;gap:.9rem}
+.fcard{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1rem;display:grid;gap:.6rem}
+.fcard.on{border:2px solid var(--glacier);padding:calc(1rem - 1px)}
+.fcard header{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap}
+.fcard header b{font-size:var(--s4);font-weight:600}
+.fopt{display:inline-grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--glacier);color:var(--paper);font:600 var(--s2) var(--mono);margin-right:.25rem}
+.fpr{font-family:var(--display);font-size:var(--s4);text-align:right;font-variant-numeric:tabular-nums}
+.fpr small{display:block;font:400 var(--s1) var(--body);color:var(--muted)}
+.fsum{font-size:var(--s2);color:var(--muted)}
+.segs{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--glacier);margin-left:.8rem}
+.segs li{padding:.5rem 0 .5rem 1rem;position:relative}
+.segs li::before{content:"";position:absolute;left:-7px;top:.85rem;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--glacier)}
+.seg1{display:flex;flex-wrap:wrap;gap:.2rem .6rem;align-items:baseline}
+.seg1 .ap{font-family:var(--mono);font-size:var(--s2);font-variant-numeric:tabular-nums}
+.seg1 .ap b{font-weight:600;color:var(--ink)}
+.seg1 .arr{color:var(--muted)}
+.seg1 .fn{flex-basis:100%;font-size:var(--s1);color:var(--muted)}
+.lay{display:flex;flex-wrap:wrap;gap:.2rem .75rem;align-items:baseline;background:var(--amber-soft);border-radius:8px;margin:.25rem 0}
+.segs li.lay::before{border-color:var(--amber);border-style:dashed}
+.lay .lc{font-weight:600;font-size:var(--s2);color:var(--amber)}
+.lay .ld{font-family:var(--mono);font-size:var(--s2)}
+.lay .ln{flex-basis:100%;font-size:var(--s1);color:var(--muted)}
+.fcard footer{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;font-size:var(--s2);color:var(--muted);border-top:1px solid var(--line);padding-top:.6rem}
+.htabs{display:grid;gap:1.5rem}
+.hblock{display:grid;gap:.6rem}
+.hblock h3 .muted{font-family:var(--body);font-size:var(--s2)}
+table.grid tr.tierrow td{background:var(--bg);font:600 var(--s1) var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.45rem .75rem}
+table.grid tr.sel td{background:var(--glacier-soft)}
+.hpn small{display:block;color:var(--muted);font-size:.75rem}
+@media (max-width:640px){.hpn small{display:inline;margin-left:.3rem}}
+.pickbtn{font:600 var(--s1) var(--body);color:var(--glacier);background:var(--paper);border:1px solid var(--glacier);border-radius:8px;padding:.35rem .8rem;min-height:34px;cursor:pointer}
+.pickbtn:hover{background:var(--glacier);color:var(--paper)}
+.fx{font-family:var(--mono);font-size:var(--s1);color:var(--muted)}
+.tabnext{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--line);padding-top:1rem;margin-top:1rem}
+.tabnext a{font-weight:600;text-decoration:none;padding:.6rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);min-height:44px;display:inline-flex;align-items:center}
+@media (max-width:640px){
+  .wrap{padding-block:1rem 3rem}
+  h2{font-size:1.8rem}
+  section{padding-top:1.25rem}
+  nav.toc a{padding:.55rem .7rem;min-height:40px;display:inline-flex;align-items:center}
+  #themeBtn{min-height:36px}
+  header.hero{padding-block:1rem .5rem}
+  .totals{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .totals div{padding:.75rem}
+  .totals b{font-size:var(--s4)}
+  .sticky{top:calc(env(safe-area-inset-top,0px) + 3.2rem)}
+  details.day>summary{padding:.8rem .75rem;gap:.6rem}
+  .dnum{font-size:1.6rem}
+  .dsum strong{font-size:var(--s3)}
+  .dbody{padding:.8rem .75rem}
+  .tl li{grid-template-columns:3.6rem 1fr;gap:.5rem}
+  .fcard{padding:.85rem}
+  .fcard header b{font-size:var(--s3)}
+  .fpr{text-align:left}
+  .hsels{padding:.8rem}
+  .hblock .tablewrap{border:0;background:none;overflow:visible}
+  .hblock table.grid{min-width:0}
+  .hblock thead{display:none}
+  .hblock tbody{display:block}
+  .hblock tr.tierrow{display:block}
+  .hblock tr.tierrow td{display:block;background:none;padding:.6rem 0 .3rem;border:0}
+  .hblock tr:not(.tierrow){display:grid;grid-template-columns:1fr auto;gap:.2rem .75rem;padding:.7rem .8rem;border:1px solid var(--line);border-radius:10px;background:var(--paper);margin-bottom:.5rem}
+  .hblock tr.sel:not(.tierrow){background:var(--glacier-soft);border-color:var(--glacier)}
+  .hblock tr td{display:block;border:0;padding:0;background:none!important;text-align:left}
+  .hblock td.hn1{grid-column:1/-1;grid-row:1}
+  .hblock td.hloc{grid-column:1/-1;grid-row:2;font-size:var(--s2);color:var(--muted)}
+  .hblock td.hpn{grid-column:1;grid-row:3;font-size:var(--s2)}
+  .hblock td.htot{grid-column:2;grid-row:3;font-size:var(--s2);text-align:right}
+  .hblock td.hpn::before{content:"Per night ";color:var(--muted)}
+  .hblock td.htot::before{content:"Stay total ";color:var(--muted)}
+  .pickbtn{min-height:40px}
+  .seg button{min-height:44px}
+}
+/* checklist */
+.check{display:grid;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.check label{display:grid;grid-template-columns:1.25rem 1fr auto;gap:.75rem;padding:.7rem 1rem;border-top:1px solid var(--line);cursor:pointer;align-items:start}
+.check label:first-child{border-top:0}
+.check input{margin-top:.3rem;accent-color:var(--glacier)}
+.check .when{font-family:var(--mono);font-size:var(--s1);color:var(--amber);white-space:nowrap;padding-top:.2rem}
+.check input:checked+span{color:var(--muted);text-decoration:line-through}
+@media (max-width:520px){.check label{grid-template-columns:1.25rem 1fr}.check .when{grid-column:2}}
+.refs{columns:2 280px;column-gap:2rem;font-size:var(--s2)}
+.refs h4{font:600 var(--s1) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:1rem 0 .3rem;break-after:avoid}
+.refs ul{margin:0;padding-left:1rem}
+.refs li{margin:.2rem 0;break-inside:avoid}
+footer{margin-top:3rem;font-size:var(--s2);color:var(--muted);border-top:1px solid var(--line);padding-top:1rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+
+table.trtable{table-layout:fixed}
+table.trtable td.r,table.trtable th.r{text-align:left;white-space:normal;line-height:1.5}
+table.trtable td.r .chip{display:block;width:max-content;margin-top:.3rem}
+.hrow{grid-template-columns:minmax(0,1fr) auto}
+.hrow.pick .nm{display:grid;grid-template-columns:20px minmax(0,1fr);column-gap:.65rem;align-items:start;min-width:0}
+.hrow.pick .nm input{width:18px;height:18px;margin:.15rem 0 0}
+.hrow.pick .nm b{overflow-wrap:anywhere}
+.hrow.pick .ds{padding-left:calc(20px + .65rem)}
+.hrow.pick .pr{padding-top:.15rem}
+#btable td.basis,#btable th.basis{white-space:nowrap}
+/* phone pass */
+@media (max-width:640px){
+  nav.toc{position:static}
+  nav.toc .row{flex-wrap:wrap;overflow:visible;gap:.35rem;padding-block:.6rem}
+  nav.toc a{background:var(--paper);border:1px solid var(--line);min-height:36px;padding:.4rem .7rem}
+  nav.toc a[aria-current="page"]{border-color:var(--glacier)}
+  .sticky{top:env(safe-area-inset-top,0px)}
+  .chip{white-space:normal;max-width:100%}
+  header.hero h1{font-size:clamp(1.9rem,8.5vw,2.5rem)}
+  .eyebrow{overflow-wrap:anywhere}
+  .mapbox{overflow:visible}
+  .mapbox svg{min-width:0}
+  .dnum small{font-size:.72rem}
+  .daybudget{overflow:visible}
+  .daybudget table{min-width:0}
+  .daybudget td:last-child{padding-left:.5rem}
+  .hblock tr:not(.tierrow){grid-template-columns:1fr}
+  .hblock td.hpn,.hblock td.htot{grid-column:1;grid-row:auto;text-align:left!important;white-space:normal}
+  .tablewrap.stackwrap{overflow:visible;border:0;background:none}
+  table.grid.stack{min-width:0}
+  table.grid.stack thead{display:none}
+  table.grid.stack,table.grid.stack tbody,table.grid.stack tfoot,table.grid.stack tr,table.grid.stack td{display:block;width:100%}
+  table.grid.stack tr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.6rem .75rem;margin-bottom:.5rem}
+  table.grid.stack td{border:0;padding:.2rem 0;text-align:left;white-space:normal;display:grid;grid-template-columns:6.2rem minmax(0,1fr);gap:.6rem;min-width:0}
+  table.grid.stack td[data-label]::before{content:attr(data-label);font:600 var(--s1) var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:.15rem}
+  table.grid.stack td:first-child{display:block;font-weight:600;font-size:var(--s3);padding-bottom:.35rem}
+  table.grid.stack td:first-child::before{content:none}
+  table.grid.stack tr.full td,table.grid.stack tr.sub td{display:block}
+  table.grid.stack tr.sub,table.grid.stack tr.full{background:var(--bg)}
+  #btable tr:not(.full){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem;padding:.45rem .7rem;margin-bottom:.3rem}
+  #btable tr:not(.full) td{display:block;padding:0}
+  #btable tr:not(.full) td::before{content:none}
+  #btable td:nth-child(2),#btable td:nth-child(3),#btable td:nth-child(5){display:none!important}
+  #btable td:first-child{font-weight:400;font-size:var(--s2)}
+  #btable td:nth-child(4){font-family:var(--mono);text-align:right;white-space:nowrap}
+  #btable tr.full{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem;align-items:baseline;padding:.55rem .7rem}
+  #btable tr.full td{display:block!important;padding:0}
+  #btable tr.full td:nth-child(2),#btable tr.full td:nth-child(4){display:none!important}
+  #btable tr.full td:nth-child(3){font-family:var(--mono);text-align:right;white-space:nowrap}
+  #btable tr.full.tt td:nth-child(2){display:block!important;font-family:var(--mono);text-align:right;white-space:nowrap}
+  #btable tr.full.tt td:nth-child(3){display:none!important}
+}
+</style>
+
+<nav class="toc" aria-label="Sections"><div class="row">
+<a href="#overview">Overview</a><a href="#summary">Summary</a><a href="#route">Route</a><a href="#days">Details</a><a href="#flights">Flights</a><a href="#hotels">Hotels</a><a href="#transport">Transport</a><a href="#food">Food</a><a href="#souvenirs">Souvenirs</a><a href="#budget">Budget</a><a href="#checklist">Checklist</a><a href="#refs">Sources</a>
+<button id="themeBtn" type="button">Theme</button>
+</div></nav>
+
+<div class="wrap">
+
+
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+<header class="hero">
+  <h1>Summer in the <em>Rockies</em></h1>
+</header>
+  <div class="sechead"><span class="eyebrow">Trip overview</span></div>
+
+  <div class="facts">
+    <div class="fact"><span class="eyebrow">Dates</span><b>Thu 10 – Wed 23 June 2027</b><span class="muted" id="f_dates">13 nights on the ground, home 24 June</span></div>
+    <div class="fact"><span class="eyebrow">Arrive</span><b id="f_arr"></b><span class="muted" id="f_arrm"></span></div>
+    <div class="fact"><span class="eyebrow">Depart</span><b id="f_dep"></b><span class="muted" id="f_depm"></span></div>
+    <div class="fact"><span class="eyebrow">Fixed date</span><b>12 June, Edmonton, all day</b><span class="muted">Outlet shopping</span></div>
+    <div class="fact"><span class="eyebrow">Bases</span><b>Edmonton 3 · Canmore 5 · Vancouver 2 · Seattle 3 nights</b><span class="muted">One room for 3</span></div>
+    <div class="fact"><span class="eyebrow">Getting around</span><b>Public transit only, plus one Calgary–Vancouver flight</b></div>
+  </div>
+</section>
+
+<!-- ============ ROUTE ============ -->
+<section id="summary">
+  <div class="sechead"><span class="eyebrow">At a glance</span></div>
+  <div class="tablewrap"><table class="grid sumt">
+    <thead><tr><th class="r">Day</th><th>Date · Overnight</th><th>Morning</th><th>Afternoon</th><th>Evening</th></tr></thead>
+    <tbody>
+<tr><td class="num" data-label="Day">1</td><td class="dt" data-label="Date">Thu 10 June · <b>Edmonton</b></td><td data-label="Morning" id="s1m"></td><td data-label="Afternoon" id="s1a"></td><td data-label="Evening" id="s1e"></td></tr>
+<tr><td class="num" data-label="Day">2</td><td class="dt" data-label="Date">Fri 11 June · <b>Edmonton</b></td><td data-label="Morning">Funicular, Muttart Conservatory</td><td data-label="Afternoon">High Level Bridge Streetcar</td><td data-label="Evening">Whyte Avenue</td></tr>
+<tr><td class="num" data-label="Day">3</td><td class="dt" data-label="Date">Sat 12 June · <b>Edmonton</b></td><td data-label="Morning">Outlet shopping</td><td data-label="Afternoon">Outlet shopping</td><td data-label="Evening">Dinner</td></tr>
+<tr><td class="num" data-label="Day">4</td><td class="dt" data-label="Date">Sun 13 June · <b data-ov="bnf">Canmore</b></td><td data-label="Morning">Bus to Canmore</td><td data-label="Afternoon">Bus to Canmore</td><td data-label="Evening">Main Street, Canmore</td></tr>
+<tr><td class="num" data-label="Day">5</td><td class="dt" data-label="Date">Mon 14 June · <b data-ov="bnf">Canmore</b></td><td data-label="Morning">Lake Louise</td><td data-label="Afternoon">Moraine Lake</td><td data-label="Evening">Dinner in <span data-ov="bnf">Canmore</span></td></tr>
+<tr><td class="num" data-label="Day">6</td><td class="dt" data-label="Date">Tue 15 June · <b data-ov="bnf">Canmore</b></td><td data-label="Morning">Banff Gondola</td><td data-label="Afternoon">Hot springs, Banff Avenue</td><td data-label="Evening">Back to <span data-ov="bnf">Canmore</span></td></tr>
+<tr><td class="num" data-label="Day">7</td><td class="dt" data-label="Date">Wed 16 June · <b data-ov="bnf">Canmore</b></td><td data-label="Morning">Lake Minnewanka cruise</td><td data-label="Afternoon">Johnston Canyon</td><td data-label="Evening">Back to <span data-ov="bnf">Canmore</span></td></tr>
+<tr><td class="num" data-label="Day">8</td><td class="dt" data-label="Date">Thu 17 June · <b data-ov="bnf">Canmore</b></td><td data-label="Morning">Bow River paths, Main Street</td><td data-label="Afternoon">Farewell lunch, Quarry Lake</td><td data-label="Evening">Hotel pool, pack</td></tr>
+<tr><td class="num" data-label="Day">9</td><td class="dt" data-label="Date">Fri 18 June · <b data-ov="van">Richmond</b></td><td data-label="Morning">Bus to Calgary airport</td><td data-label="Afternoon">Fly to Vancouver</td><td data-label="Evening">Richmond Night Market</td></tr>
+<tr><td class="num" data-label="Day">10</td><td class="dt" data-label="Date">Sat 19 June · <b data-ov="van">Richmond</b></td><td data-label="Morning">Stanley Park seawall</td><td data-label="Afternoon">Granville Island</td><td data-label="Evening">Gastown</td></tr>
+<tr><td class="num" data-label="Day">11</td><td class="dt" data-label="Date">Sun 20 June · <b data-ov="sea">SeaTac</b></td><td data-label="Morning">Train to Seattle</td><td data-label="Afternoon">Pike Place, waterfront</td><td data-label="Evening">Dinner downtown</td></tr>
+<tr><td class="num" data-label="Day">12</td><td class="dt" data-label="Date">Mon 21 June · <b data-ov="sea">SeaTac</b></td><td data-label="Morning">Ferry to Bainbridge</td><td data-label="Afternoon">Kerry Park</td><td data-label="Evening">Dinner downtown</td></tr>
+<tr><td class="num" data-label="Day">13</td><td class="dt" data-label="Date">Tue 22 June · <b data-ov="sea">SeaTac</b></td><td data-label="Morning">Mt Rainier tour</td><td data-label="Afternoon">Paradise, waterfalls</td><td data-label="Evening">Dinner near the hotel</td></tr>
+<tr><td class="num" data-label="Day">14</td><td class="dt" data-label="Date">Wed 23 June</td><td data-label="Morning" id="s14m"></td><td data-label="Afternoon" id="s14a"></td><td data-label="Evening" id="s14e"></td></tr>
+    </tbody>
+    <tfoot><tr class="sumall"><td colspan="4">Total trip budget per person<span>Includes international flights, eTA, eSIM and travel insurance</span></td><td class="r" id="sumAll"></td></tr></tfoot>
+  </table></div>
+</section>
+
+<section id="route">
+  <div class="sechead"><span class="eyebrow">Route</span></div>
+  <figure class="map">
+    <div class="mapbox">
+    <svg viewBox="0 0 600 440" role="img" aria-label="Schematic map of the route: Edmonton, bus to Banff, shuttle to Calgary airport, flight to Vancouver, train to Seattle">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker>
+      </defs>
+      <rect x="0" y="0" width="600" height="440" fill="var(--paper)"/>
+      <!-- faint graticule -->
+      <g stroke="var(--line)" stroke-width="1" fill="none">
+        <line x1="0" y1="91" x2="600" y2="91"/><line x1="0" y1="201" x2="600" y2="201"/><line x1="0" y1="311" x2="600" y2="311"/><line x1="0" y1="421" x2="600" y2="421"/>
+        <line x1="112" y1="0" x2="112" y2="440"/><line x1="247" y1="0" x2="247" y2="440"/><line x1="382" y1="0" x2="382" y2="440"/><line x1="517" y1="0" x2="517" y2="440"/>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">
+        <text x="4" y="88">53°N</text><text x="4" y="198">51°N</text><text x="4" y="308">49°N</text><text x="4" y="418">47°N</text>
+        <text x="114" y="436">122°W</text><text x="249" y="436">119°W</text><text x="384" y="436">116°W</text><text x="519" y="436">113°W</text>
+      </g>
+      <!-- rough coast / border hint -->
+      <path d="M40,230 C55,250 50,262 58,280 C62,300 72,320 80,345 C88,370 96,395 104,420" fill="none" stroke="var(--glacier-soft)" stroke-width="10" stroke-linecap="round"/>
+      <line x1="70" y1="303" x2="600" y2="303" stroke="var(--muted)" stroke-width="1" stroke-dasharray="2 4"/>
+      <text x="470" y="298" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">CANADA</text>
+      <text x="470" y="316" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">USA</text>
+      <!-- legs -->
+      <path d="M495,36 C470,90 430,140 402,166" fill="none" stroke="var(--pine)" stroke-width="3" marker-end="url(#arr)"/>
+      <path d="M402,166 L466,170" fill="none" stroke="var(--pine)" stroke-width="3" marker-end="url(#arr)"/>
+      <path d="M472,169 C380,150 180,190 66,268" fill="none" stroke="var(--amber)" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#arr)"/>
+      <path d="M62,271 C72,300 88,330 97,358" fill="none" stroke="var(--glacier)" stroke-width="3" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#arr)"/>
+      <!-- day trips -->
+      <g stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3" fill="none">
+        <line x1="402" y1="166" x2="374" y2="153"/>
+        <line x1="402" y1="166" x2="410" y2="158"/>
+        <line x1="62" y1="271" x2="60" y2="248"/>
+        <line x1="98" y1="362" x2="123" y2="404"/>
+      </g>
+      <!-- attractions -->
+      <g fill="var(--paper)" stroke="var(--pine)" stroke-width="2">
+        <circle cx="374" cy="153" r="4"/><circle cx="412" cy="156" r="4"/><circle cx="60" cy="248" r="4"/><circle cx="123" cy="404" r="4"/>
+      </g>
+      <g font-family="Public Sans, sans-serif" font-size="10.5" fill="var(--pine)">
+        <text x="300" y="140">Lake Louise · Moraine</text>
+        <text x="418" y="150">Minnewanka · Canmore</text>
+        <text x="68" y="244">Sea to Sky (optional)</text>
+        <text x="131" y="408">Mt Rainier (optional)</text>
+      </g>
+      <!-- transit point -->
+      <circle cx="472" cy="169" r="5" fill="var(--amber)"/>
+      <text x="480" y="186" font-family="Public Sans, sans-serif" font-size="11" fill="var(--amber)">Calgary YYC (transfer)</text>
+      <!-- bases -->
+      <g font-family="Gloock, Georgia, serif" font-size="12" fill="var(--paper)" text-anchor="middle">
+        <circle cx="495" cy="36" r="11" fill="var(--glacier)"/><text x="495" y="40">1</text>
+        <circle cx="402" cy="166" r="11" fill="var(--glacier)"/><text x="402" y="170">2</text>
+        <circle cx="62" cy="271" r="11" fill="var(--glacier)"/><text x="62" y="275">3</text>
+        <circle cx="98" cy="362" r="11" fill="var(--glacier)"/><text x="98" y="366">4</text>
+      </g>
+      <g font-family="Gloock, Georgia, serif" font-size="16" fill="var(--ink)">
+        <text x="440" y="62">Edmonton</text>
+        <text x="340" y="195">Canmore</text>
+        <text x="80" y="290">Vancouver</text>
+        <text x="116" y="366">Seattle</text>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--muted)">
+        <text x="452" y="105">bus ~6¾ h · 13 Jun</text>
+        <text x="236" y="168">flight ~1½ h · 18 Jun</text>
+        <text x="20" y="325">train ~4 h · 20 Jun</text>
+        <text x="20" y="337">(US border)</text>
+      </g>
+    </svg>
+    </div>
+    <div class="legend">
+      <span><i class="sw bus"></i>Bus / shuttle</span><span><i class="sw fly"></i>Flight</span><span><i class="sw train"></i>Train</span><span><i class="sw trip"></i>Day trip</span>
+    </div>
+  </figure>
+
+  <div class="legs">
+    <div class="leg"><span class="when">10–13 Jun</span><div class="what"><b>Edmonton</b> · 3 nights. River valley, outlet shopping.</div></div>
+    <div class="leg"><span class="when">13 Jun</span><div class="what"><b>Bus to Canmore</b>, ~6½ h via Calgary. Direct coach from downtown Edmonton.</div></div>
+    <div class="leg"><span class="when">13–18 Jun</span><div class="what"><b>Canmore</b> · 5 nights, with Banff 25–30 min away by Roam Route 3. Lake Louise &amp; Moraine, gondola &amp; hot springs, Minnewanka cruise &amp; Johnston Canyon, a slow Canmore day.</div></div>
+    <div class="leg"><span class="when">18 Jun</span><div class="what"><b>Bus to Calgary airport, fly to Vancouver.</b> Lands early afternoon.</div></div>
+    <div class="leg"><span class="when">18–20 Jun</span><div class="what"><b>Vancouver</b> · 2 nights in Richmond, near the airport and the Canada Line. Night market, Stanley Park, Granville Island, Gastown.</div></div>
+    <div class="leg"><span class="when">20 Jun</span><div class="what"><b>Amtrak Cascades to Seattle</b>, ~4–4½ h including US border inspection.</div></div>
+    <div class="leg"><span class="when">20–23 Jun</span><div class="what"><b>Seattle</b> · 3 nights by the airport, on the light rail. Pike Place, Bainbridge ferry, Mt Rainier day tour, then a short walk to your flight.</div></div>
+  </div>
+</section>
+
+<!-- ============ DAYS ============ -->
+<section id="days">
+  <div class="sechead"><span class="eyebrow">Details</span></div>
+  <div class="daytools">
+    <button class="ghost" type="button" id="openAll">Expand all days</button>
+    <button class="ghost" type="button" id="closeAll">Collapse all</button>
+  </div>
+
+  <div class="citylabel" id="cl_edm"></div>
+
+  <details class="day" open id="d1">
+    <summary><span class="dnum">1<small>THU 10</small></span><span class="dsum"><strong id="d1s"></strong><span class="meta">Overnight: Edmonton · travel day</span></span><span class="dspend" data-day="1"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip fixed">Fixed: flights</span><span class="chip book" id="d1tag"></span></div>
+      <ol class="tl">
+        <li><span class="t" id="d1ci">13:50</span><span class="a"><b>Check in at NAIA</b><span class="how">Three hours before an international departure.</span></span></li>
+        <li class="move" id="d1fl"></li>
+        <li class="move" id="d1land"></li>
+        <li id="d1chk"></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul id="d1meals"><li>Lunch before leaving for the airport</li><li>Dinner on the plane</li></ul></div>
+        <div class="box"><h5>Bookings &amp; reminders</h5><ul><li id="d1rem"></li><li>Get an eSIM covering Canada and the US before leaving Manila</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="1"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d2">
+    <summary><span class="dnum">2<small>FRI 11</small></span><span class="dsum"><strong>River valley: conservatory pyramids and a streetcar over the bridge</strong><span class="meta">Overnight: Edmonton · two places, easy pace</span></span><span class="dspend" data-day="2"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip flex">Flexible</span><span class="chip">Light walking, mostly paved</span></div>
+      <ol class="tl">
+        <li><span class="t">10:00</span><span class="a"><b>Late, slow breakfast</b><span class="how">Duchess Bake Shop on 124 Street (bus ~15 min) or a café near the hotel.</span></span></li>
+        <li><span class="t">10:30</span><span class="a"><b>100 Street Funicular down into the river valley</b><span class="how">Free public funicular beside the Hotel Macdonald. Walk the flat riverside path through Louise McKinney Riverfront Park, 30–45 min.</span></span></li>
+        <li class="move"><span class="t">+15 min</span><span class="a"><b>Valley Line LRT to Muttart stop</b><span class="how">From 102 Street stop; one regular fare.</span></span></li>
+        <li><span class="t">11:30</span><span class="a"><b>Muttart Conservatory</b><span class="how">Four glass pyramids of plant biomes, about 1–1½ h. CA$14.95 adult (2026). Daily 10:00–17:00, to 21:00 Wed–Thu. Lunch at Café Bloom on site.</span></span></li>
+        <li><span class="t">14:00</span><span class="a"><b>Rest at the hotel</b><span class="how">Back by LRT, ~20 min.</span></span></li>
+        <li><span class="t">16:30</span><span class="a"><b>High Level Bridge Streetcar to Old Strathcona</b><span class="how">Heritage streetcar from Jasper Plaza across the bridge, high over the river. Ran Thu–Mon in summer 2026. Fare not confirmed (est CA$10 pp).</span></span></li>
+        <li><span class="t">17:30</span><span class="a"><b>Whyte Avenue stroll, light dinner</b><span class="how">Bus or LRT back from University station.</span></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: Duchess Bake Shop (~CA$15)</li><li>Lunch: Café Bloom at Muttart (~CA$22)</li><li>Dinner: light, takeout or snacks on Whyte Ave (~CA$15)</li></ul></div>
+        <div class="box"><h5>Bad weather</h5><ul><li>Muttart is indoors; swap the streetcar for a covered walk through downtown pedways</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="2"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d3">
+    <summary><span class="dnum">3<small>SAT 12</small></span><span class="dsum"><strong>Shopping!</strong><span class="meta">Overnight: Edmonton · pack for the bus</span></span><span class="dspend" data-day="3"></span></summary>
+    <div class="dbody">
+      <ol class="tl">
+        <li class="move"><span class="t">10:30</span><span class="a"><b>Capital Line LRT to Century Park, then ETS Route 747</b><span class="how">Route 747 runs between Century Park and Edmonton International Airport, and on its trip back from the airport it stops at the Premium Outlet Collection mall. Ride to the airport and stay on, or follow the driver's directions. CA$6 cash each way (2026), every 30–60 min. Allow about 1 h each way.</span></span></li>
+        <li><span class="t">11:30</span><span class="a"><b>Premium Outlet Collection Edmonton International Airport</b><span class="how">Brand outlet mall beside the airport, with a food court. Mall hours not checked for 2027. Allow 3–4 h.</span></span></li>
+        <li class="move"><span class="t">16:00</span><span class="a"><b>747 back to Century Park, LRT downtown</b><span class="how">Check the last convenient 747 departure before you go.</span></span></li>
+        <li><span class="t">19:00</span><span class="a"><b>Dinner, then pack</b><span class="how">Check-out tomorrow ~09:15. Keep shopping light: you carry bags on buses for the rest of the trip.</span></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Lunch: food court at the outlet mall</li><li>Dinner: casual together, e.g. Tres Carnales tacos (~CA$25)</li></ul></div>
+        <div class="box"><h5>Budget note</h5><ul><li>The budget covers the bus fares only. Shopping is excluded.</li></ul></div>
+        <div class="box"><h5>Alternative</h5><ul><li>West Edmonton Mall by bus, closer to downtown</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="3"></div>
+    </div>
+  </details>
+
+  
+<div class="citylabel" id="cl_bnf"></div>
+
+  <details class="day" id="d4">
+    <summary><span class="dnum">4<small>SUN 13</small></span><span class="dsum"><strong>Coach through Calgary to Canmore</strong><span class="meta">Overnight: <span data-ov="bnf">Canmore</span> · travel day</span></span><span class="dspend" data-day="4"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip fixed">Fixed: bus departure</span><span class="chip book">Book bus</span></div>
+      <ol class="tl">
+        <li><span class="t">09:15</span><span class="a"><b>Check out, short taxi to the FlixBus stop at 11525 Jasper Ave</b><span class="how">About 1.5 km west of the hotel; too far with bags.</span></span></li>
+        <li class="move"><span class="t">10:00</span><span class="a"><b>FlixBus, Downtown Jasper Ave → Canmore, arrives ~16:30</b><span class="how">About 6½ h with stops in Red Deer and Calgary. Canmore stop: 2 Ave at the Northwinds Hotel. Canmore comes before Banff, so the arrival time is estimated from the Banff timetable. Backup: Red Arrow to Calgary plus a Calgary–Canmore shuttle.</span></span></li>
+        <li id="d4chk"></li>
+        <li><span class="t">18:00</span><span class="a"><b>Groceries, then an evening walk on Main Street</b><span class="how">Stock the suite kitchen for breakfasts and packed lunches. Sunset is after 21:30.</span></span></li>
+        <li><span class="t">19:30</span><span class="a"><b>Light dinner in the suite</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast before the bus; pack lunch and water (the Calgary stop is short)</li><li>Dinner: light, from the grocery or a Main Street takeout</li></ul></div>
+        <div class="box"><h5>Bookings &amp; reminders</h5><ul><li>Buy Banff park passes for 14–16 June, the days you enter the park (CA$12.25 per adult per day in 2026)</li><li>Confirm your Roam Super Pass for tomorrow</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="4"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d5">
+    <summary><span class="dnum">5<small>MON 14</small></span><span class="dsum"><strong>Lake Louise and Moraine Lake</strong><span class="meta">Overnight: <span data-ov="bnf">Canmore</span> · the must-see day, two lakes</span></span><span class="dspend" data-day="5"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip fixed">Fixed: timed bus reservation</span><span class="chip book">Book in April 2027</span><span class="chip">Easy flat walks</span></div>
+      <ol class="tl">
+        <li><span class="t">06:15</span><span class="a"><b>Breakfast in the suite, pack lunch</b></span></li>
+        <li class="move" id="b5a"><span class="t">~07:00</span><span class="a"><b>Roam Route 3 Canmore → Banff, ~25–30 min</b><span class="how">Covered by the Super Pass below.</span></span></li>
+        <li class="move"><span class="t">~07:45</span><span class="a"><b>Roam 8X Banff → Lake Louise Lakeshore, ~1 h</b><span class="how">Use the Roam Reservable Super Pass: CA$30 adult in 2026. It covers the 8X round trip, all Roam buses that day, and the Parks Canada Lake Connector between Lake Louise and Moraine Lake. Private cars cannot drive to Moraine Lake.</span></span></li>
+        <li><span class="t">09:00</span><span class="a"><b>Lake Louise shoreline</b><span class="how">Flat lakeshore trail along the water, 1–1½ h. Canoe rental at the boathouse is a splurge.</span></span></li>
+        <li class="move"><span class="t">10:45</span><span class="a"><b>Lake Connector shuttle to Moraine Lake</b><span class="how">First come, first served at the tent, ~20 min.</span></span></li>
+        <li><span class="t">11:15</span><span class="a"><b>Moraine Lake and the Rockpile viewpoint</b><span class="how">The Rockpile is a short climb on steps and gravel, about 10 min, to the classic Ten Peaks view. Lunch by the lake. Allow 2 h.</span></span></li>
+        <li class="move" id="b5b"><span class="t">14:00</span><span class="a"><b>Connector back, 8X to Banff, Route 3 to Canmore</b><span class="how">Take the return time on your reservation. Back in Canmore ~17:15.</span></span></li>
+        <li><span class="t">19:00</span><span class="a"><b>Dinner</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast &amp; packed lunch: from the suite kitchen</li><li>Backup lunch: Laggan's Bakery in Lake Louise village</li><li>Dinner: back in Canmore, early night</li></ul></div>
+        <div class="box"><h5>Bookings</h5><ul><li>2026 pattern: Parks Canada shuttle seats opened 15 April (40% of seats), the rest 2 days ahead at 08:00. Roam's June Super Pass dates opened 23 April. Watch for the 2027 dates in March.</li></ul></div>
+        <div class="box"><h5>Seasonal notes</h5><ul><li>Moraine Lake road usually opens about 1 June. In mid-June the lake may still be low or part-frozen, with snow on the peaks.</li><li>Mornings near freezing: bring hats and gloves.</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="5"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d6">
+    <summary><span class="dnum">6<small>TUE 15</small></span><span class="dsum"><strong>Banff Gondola and the hot springs</strong><span class="meta">Overnight: <span data-ov="bnf">Canmore</span> · gentle day after an early one</span></span><span class="dspend" data-day="6"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip book">Book gondola online</span><span class="chip flex">Flexible times</span></div>
+      <ol class="tl">
+        <li><span class="t">09:00</span><span class="a"><b>Breakfast in the suite</b></span></li>
+        <li class="move"><span class="t">09:30</span><span class="a"><b>Route 3 to Banff, then Roam Route 1 to Sulphur Mountain</b><span class="how">Free with a pre-bought gondola ticket (2026 policy), ~15 min.</span></span></li>
+        <li><span class="t">10:30</span><span class="a"><b>Banff Gondola and summit boardwalk</b><span class="how">Eight-minute ride up, then a boardwalk with stairs to the Sanson Peak weather station. 1½–2 h. Price not confirmed for 2026 (est CA$75 pp); prices rise closer to the date.</span></span></li>
+        <li><span class="t">13:00</span><span class="a"><b>Lunch at the summit or back in town</b></span></li>
+        <li><span class="t">14:30</span><span class="a"><b>Banff Upper Hot Springs</b><span class="how">A few minutes from the gondola base. CA$19.75 adult (2026). Towel and swimsuit rentals on site. 1 h is plenty.</span></span></li>
+        <li id="b6a"><span class="t">16:00</span><span class="a"><b>Free time on Banff Avenue, Route 3 back to Canmore</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: suite kitchen</li><li>Lunch: summit café (pricey) or Eddie Burger in town (~CA$30)</li><li>Dinner: light, in the suite or takeout in Canmore</li></ul></div>
+        <div class="box"><h5>Bad weather</h5><ul><li>Clouds hide the views: swap with day 8 and ride on the clearer day</li><li>Cave and Basin National Historic Site is partly indoors (CA$10 adult, 2026)</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="6"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d7">
+    <summary><span class="dnum">7<small>WED 16</small></span><span class="dsum"><strong>Lake Minnewanka cruise and Johnston Canyon</strong><span class="meta">Overnight: <span data-ov="bnf">Canmore</span> · two places, both by Roam bus</span></span><span class="dspend" data-day="7"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip book">Book cruise</span><span class="chip flex">Order can flip</span><span class="chip">Light walking</span></div>
+      <ol class="tl">
+        <li class="move" id="b7a"><span class="t">08:45</span><span class="a"><b>Route 3 to Banff, then Roam Route 6 to Lake Minnewanka</b><span class="how">Route 6 is free with a same-day cruise ticket. Leave Canmore about 1½ h before sailing.</span></span></li>
+        <li><span class="t">10:30</span><span class="a"><b>Lake Minnewanka Classic Cruise, 1 h</b><span class="how">The largest lake in the park, with commentary. CA$75 adult booked ahead (2026). Check the June 2027 sailing times; the 2027 calendar lists 10:00, 13:00 and 19:00 from 26 June, and earlier-June times may differ.</span></span></li>
+        <li class="move"><span class="t">12:30</span><span class="a"><b>Back to town, lunch</b></span></li>
+        <li class="move"><span class="t">14:00</span><span class="a"><b>Roam Route 9 to Johnston Canyon, ~35 min</b><span class="how">CA$5 each way (2026), departures about hourly.</span></span></li>
+        <li><span class="t">14:45</span><span class="a"><b>Johnston Canyon Lower Falls</b><span class="how">1.1–1.2 km each way, mostly paved, with catwalks bolted to the canyon wall. About 1 h return. Upper Falls adds ~1.5 km each way and more climbing; skip unless you feel fresh.</span></span></li>
+        <li id="b7b"><span class="t">17:00</span><span class="a"><b>Bus back to Banff, then Route 3 to Canmore</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: suite kitchen</li><li>Lunch: Nourish Bistro (vegetarian, ~CA$30)</li><li>Dinner: light, in the suite or takeout in Canmore</li></ul></div>
+        <div class="box"><h5>Bigger alternative</h5><ul><li>Icefields Parkway coach tour to the Columbia Icefield (full day)</li><li>Lazy option: skip the canyon, stay on Banff Avenue</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="7"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d8">
+    <summary><span class="dnum">8<small>THU 17</small></span><span class="dsum"><strong>A slow day in Canmore</strong><span class="meta">Overnight: <span data-ov="bnf">Canmore</span> · no buses needed, also your weather buffer</span></span><span class="dspend" data-day="8"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip flex">Flexible</span><span class="chip">Flat walks only</span><span class="chip">Swap with any rained-out day</span></div>
+      <ol class="tl">
+        <li><span class="t">09:00</span><span class="a"><b>Late, slow breakfast</b><span class="how">A rest morning after three active days.</span></span></li>
+        <li><span class="t">10:30</span><span class="a"><b>Bow River paths and Main Street</b><span class="how">Flat riverside paths under the Three Sisters peaks, then Main Street cafés and shops.</span></span></li>
+        <li><span class="t">12:30</span><span class="a"><b>Farewell sit-down lunch, then Quarry Lake if the seasonal bus runs</b><span class="how">Roam Route 12 served Quarry Lake in summer 2026 (start date not checked). Flat loop with big mountain reflections. If the bus is not running yet, stay on the river paths.</span></span></li>
+        <li><span class="t">16:00</span><span class="a"><b>Hotel pool, rest, pack</b></span></li>
+        <li><span class="t">19:00</span><span class="a"><b>Light dinner in the suite, pack</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: suite kitchen</li><li>Lunch: farewell-to-the-Rockies sit-down lunch on Main Street</li><li>Dinner: light, in the suite</li></ul></div>
+        <div class="box"><h5>Upgrade</h5><ul><li>Icefields Parkway coach tour to the Columbia Icefield (full day, much pricier; not in the ₱200k plan)</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="8"></div>
+    </div>
+  </details>
+
+  <div class="citylabel" id="cl_van"></div>
+
+  <details class="day" id="d9">
+    <summary><span class="dnum">9<small>FRI 18</small></span><span class="dsum"><strong>Bus to Calgary airport, fly to Vancouver, Richmond Night Market</strong><span class="meta">Overnight: Vancouver · travel day, gains 1 hour</span></span><span class="dspend" data-day="9"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip fixed">Fixed: bus + flight</span><span class="chip book">Book both</span></div>
+      <ol class="tl">
+        <li id="d9out"></li>
+        <li class="move" id="d9bus"></li>
+        <li class="move" id="d9fl"></li>
+        <li class="move" id="d9xf"></li>
+        <li id="d9chk"></li>
+        <li><span class="t">19:00</span><span class="a"><b>Richmond Night Market for dinner</b><span class="how">Near Bridgeport station. It usually runs Friday to Sunday evenings in summer; 2027 dates and entry fee not yet published. If it is closed, eat in Richmond or at River Rock next to the station.</span></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Lunch: airport or packed sandwich</li><li>Dinner: night market stalls (~CA$30 pp)</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="9"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d10">
+    <summary><span class="dnum">10<small>SAT 19</small></span><span class="dsum"><strong>Stanley Park seawall and Granville Island</strong><span class="meta">Overnight: Vancouver · the one full city day</span></span><span class="dspend" data-day="10"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip flex">Flexible</span><span class="chip">Flat walking</span></div>
+      <ol class="tl">
+        <li id="v10a"><span class="t">08:00</span><span class="a"><b>Breakfast near Bridgeport station</b><span class="how">Cafés and bakeries around Richmond Centre and No. 3 Road, or grab something downtown.</span></span></li>
+        <li class="move" id="v10b"><span class="t">09:00</span><span class="a"><b>Walk to Bridgeport, Canada Line downtown, ~20–25 min</b><span class="how">About 8 min on foot along Bridgeport Road. Buy a Compass DayPass (covers all zones).</span></span></li>
+        <li class="move"><span class="t">10:00</span><span class="a"><b>Bus toward Stanley Park</b></span></li>
+        <li><span class="t">11:00</span><span class="a"><b>Stanley Park seawall: Coal Harbour to Brockton Point</b><span class="how">Flat path past the totem poles and Lions Gate Bridge views, 1½–2 h on foot. A bike rental lets you do the full ~9 km loop (extra cost).</span></span></li>
+        <li><span class="t">13:30</span><span class="a"><b>English Bay beach, then a small ferry across False Creek</b><span class="how">Aquabus or False Creek Ferries to Granville Island.</span></span></li>
+        <li><span class="t">14:00</span><span class="a"><b>Granville Island Public Market</b><span class="how">Late lunch from the stalls, 1½–2 h.</span></span></li>
+        <li><span class="t">17:00</span><span class="a"><b>Gastown and Waterfront</b><span class="how">Short flat walk near Waterfront station, the Canada Line's first stop.</span></span></li>
+        <li id="v10c"><span class="t">18:30</span><span class="a"><b>Dinner downtown, Canada Line back to Bridgeport, pack</b><span class="how">If it is dark or you are tired, take a short taxi from the station to the hotel.</span></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: café or bakery near the hotel (~CA$15)</li><li>Lunch: Granville Island Market stalls (~CA$18)</li><li>Dinner: Hokkaido Ramen Santouka (~CA$25) or Japadog (~CA$12)</li></ul></div>
+        <div class="box"><h5>Swap-in (not in the ₱200k plan)</h5><ul><li>Sea to Sky Gondola and Shannon Falls by Squamish Connector shuttle: about CA$125 each. It replaces the city day.</li><li>Capilano Suspension Bridge (~CA$80, free downtown shuttle) or free Lynn Canyon</li></ul></div>
+        <div class="box"><h5>Bad weather</h5><ul><li>The market is covered; skip the seawall</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="10"></div>
+    </div>
+  </details>
+
+  <div class="citylabel" id="cl_sea"></div>
+
+  <details class="day" id="d11">
+    <summary><span class="dnum">11<small>SUN 20</small></span><span class="dsum"><strong>Train to Seattle, Pike Place Market</strong><span class="meta">Overnight: Seattle · border crossing day</span></span><span class="dspend" data-day="11"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip fixed">Fixed: train</span><span class="chip book">Book Amtrak</span></div>
+      <ol class="tl">
+        <li class="move" id="v11a"><span class="t">06:00</span><span class="a"><b>Taxi to Pacific Central Station, ~20–25 min</b><span class="how">Book the night before. Eat at the station or on the train. Amtrak asks for early arrival for US border inspection.</span></span></li>
+        <li class="move"><span class="t">~07:25</span><span class="a"><b>Amtrak Cascades 517 Vancouver → Seattle, arrives ~11:40–12:10</b><span class="how">Two trains a day each way in 2026: morning and late afternoon. Times shifted during 2026, so confirm the 2027 timetable. Coach fares from about US$40–85.</span></span></li>
+        <li class="move" id="s11a"><span class="t">12:15</span><span class="a"><b>Link light rail to SeaTac/Airport, ~35–40 min</b><span class="how">Int'l District/Chinatown station is next to King Street Station. The hotel is a 4–5 min walk from SeaTac/Airport station. Leave bags at the desk (or check in if the room is ready).</span></span></li>
+        <li class="move" id="s11b"><span class="t">13:30</span><span class="a"><b>Link back to Westlake, ~40 min</b></span></li>
+        <li><span class="t">14:15</span><span class="a"><b>Pike Place Market and the new waterfront</b><span class="how">Late lunch from the stalls; 2–3 h wandering.</span></span></li>
+        <li><span class="t">18:00</span><span class="a"><b>Light dinner, Link back to the hotel</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: station or the train café car</li><li>Lunch: Pike Place Chowder (~US$18), Piroshky Piroshky (~US$10), Beecher's mac &amp; cheese</li><li>Dinner: light, takeout before the ride back</li></ul></div>
+        <div class="box"><h5>Reminders</h5><ul><li>Carry passports, US visas and onward flight details on the train</li><li>Pike Place Chowder kept 11:00–17:00 hours; go early</li></ul></div>
+        <div class="box"><h5>Alternative</h5><ul><li>FlixBus Vancouver → Seattle if train times do not suit</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="11"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d12">
+    <summary><span class="dnum">12<small>MON 21</small></span><span class="dsum"><strong>Ferry to Bainbridge Island, Kerry Park viewpoint</strong><span class="meta">Overnight: Seattle · water and mountain views, easy pace</span></span><span class="dspend" data-day="12"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip flex">Flexible</span><span class="chip">Easy walking</span></div>
+      <ol class="tl">
+        <li class="move" id="s12a"><span class="t">08:45</span><span class="a"><b>Link to Pioneer Square, ~35 min, walk to Colman Dock</b></span></li>
+        <li class="move"><span class="t">10:10</span><span class="a"><b>Walk-on ferry from Colman Dock to Bainbridge, 35 min</b><span class="how">US$11.35 walk-on in 2026, paid westbound only; the return is free. Stand on the outer deck for the skyline and, on clear days, Mount Rainier and the Olympic Mountains.</span></span></li>
+        <li><span class="t">11:00</span><span class="a"><b>Winslow village and the waterfront path</b><span class="how">Five minutes' walk from the terminal. Coffee, lunch, a flat harbourside stroll. Allow 2–3 h.</span></span></li>
+        <li class="move"><span class="t">14:00</span><span class="a"><b>Ferry back, coffee downtown</b></span></li>
+        <li><span class="t">16:30</span><span class="a"><b>Kerry Park viewpoint</b><span class="how">The classic Seattle skyline view from Queen Anne hill. Bus or rideshare ~15 min. Late-afternoon light rather than sunset, so you are not riding back to the airport late.</span></span></li>
+        <li><span class="t">18:30</span><span class="a"><b>Light dinner, Link back to the hotel</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: near the hotel, or Piroshky Piroshky downtown</li><li>Lunch: sit-down at a café in Winslow</li><li>Dinner: light, takeout near the station</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="12"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d13">
+    <summary><span class="dnum">13<small>TUE 22</small></span><span class="dsum"><strong>Mount Rainier small-group day tour</strong><span class="meta">Overnight: Seattle · long day, mostly seated</span></span><span class="dspend" data-day="13"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip book">Book tour</span><span class="chip fixed">Fixed: pick-up time</span><span class="chip">Short paved paths</span></div>
+      <ol class="tl">
+        <li class="move" id="s13a"><span class="t">~06:00</span><span class="a"><b>Early Link downtown for the tour pick-up</b><span class="how">Most tours collect downtown around 07:00. Before booking, check whether the tour picks up near the airport instead.</span></span></li>
+        <li class="move"><span class="t">~07:00</span><span class="a"><b>Tour pick-up</b><span class="how">About 2½ h each way by small coach. Small-group tours cost about US$150–170 each in 2026.</span></span></li>
+        <li><span class="t">10:00</span><span class="a"><b>Christine Falls and Narada Falls</b><span class="how">Waterfalls a few steps from the road.</span></span></li>
+        <li><span class="t">11:30</span><span class="a"><b>Paradise visitor centre</b><span class="how">Mountain views and short paved paths. Snow often lingers here in mid-June.</span></span></li>
+        <li><span class="t">13:00</span><span class="a"><b>Lunch at Paradise or Longmire</b></span></li>
+        <li class="move" id="s13b"><span class="t">~18:00</span><span class="a"><b>Back in Seattle, Link to the hotel</b></span></li>
+        <li><span class="t">19:30</span><span class="a"><b>Easy dinner near the hotel, pack</b></span></li>
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul><li>Breakfast: grab-and-go before the early train</li><li>Lunch: included on some tours, otherwise the Paradise or Longmire café</li><li>Dinner: light, near the hotel</li></ul></div>
+        <div class="box"><h5>Reminders</h5><ul><li>Tip guides 15–20%</li><li>Warm layers: Paradise sits at 1,600 m</li></ul></div>
+        <div class="box"><h5>Gentler alternative</h5><ul><li>Olympic Sculpture Park and the Elliott Bay waterfront, then Pike Place</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="13"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d14">
+    <summary><span class="dnum">14<small>WED 23</small></span><span class="dsum"><strong id="d14s"></strong><span class="meta" id="d14meta"></span></span><span class="dspend" data-day="14"></span></summary>
+    <div class="dbody">
+      <div class="tags"><span class="chip fixed">Fixed: flight</span></div>
+      <ol class="tl" id="d14tl">
+      </ol>
+      <div class="cols">
+        <div class="box"><h5>Meals</h5><ul id="d14meals"></ul></div>
+        <div class="box"><h5>Reminders</h5><ul><li>Complete the Philippine eTravel registration within 72 h before arrival</li></ul></div>
+      </div>
+      <div class="daybudget" data-detail="14"></div>
+    </div>
+  </details>
+</section>
+
+
+<section id="hotels">
+  <div class="sechead"><span class="eyebrow">Hotels · one room for 3</span></div>
+  <div id="hotelTables" class="htabs"></div>
+</section>
+
+<!-- ============ TRANSPORT ============ -->
+<section id="transport">
+  <div class="sechead"><span class="eyebrow">Transport</span></div>
+  <div class="tablewrap stackwrap"><table class="grid stack trtable">
+    <colgroup><col style="width:17%"><col style="width:29%"><col style="width:12%"><col style="width:17%"><col style="width:25%"></colgroup>
+    <thead><tr><th>Leg</th><th>Recommended</th><th>Time</th><th class="r">Fare each</th><th>Backup</th></tr></thead>
+    <tbody>
+      <tr><td>YEG airport → downtown</td><td>ETS 747 to Century Park + Capital Line LRT, or flat-fare taxi</td><td>60–75 min / 35 min</td><td class="r">CA$9 <span class="chip">2026</span></td><td>Taxi ~CA$55–65 per car</td></tr>
+      <tr><td>Edmonton local</td><td>Arc card or tap-to-pay on LRT and bus</td><td>—</td><td class="r">CA$3, cap 10.50/day</td><td>Cash CA$3.75</td></tr>
+      <tr><td>Outlet shopping, 12 June</td><td>LRT to Century Park + ETS Route 747</td><td>~1 h each way</td><td class="r">CA$6 each way <span class="chip">2026</span></td><td>West Edmonton Mall by bus</td></tr>
+      <tr><td>Edmonton → Canmore</td><td><a href="https://global.flixbus.com/bus-routes/bus-edmonton-ab-canmore" target="_blank" rel="noopener">FlixBus</a>, 10:00 Jasper Ave, Canmore stop at the Northwinds Hotel</td><td>~6 h 35 m</td><td class="r">CA$31–55 <span class="chip">est</span></td><td>Red Arrow + Calgary–Canmore shuttle</td></tr>
+      <tr><td>Canmore ↔ Banff &amp; local</td><td><a href="https://roamtransit.com" target="_blank" rel="noopener">Roam Transit</a> Route 3 (Canmore–Banff), Routes 1, 6, 8X, 9</td><td>15–60 min</td><td class="r">CA$6 single<br>CA$15 day pass<br>CA$30 Super Pass <span class="chip">2026</span></td><td>Free rides with gondola and cruise tickets</td></tr>
+      <tr><td>Banff → Lake Louise &amp; Moraine</td><td>Roam Reservable Super Pass (incl. Lake Connector)</td><td>~1 h + 20 min</td><td class="r">CA$30 <span class="chip">2026</span></td><td><a href="https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise" target="_blank" rel="noopener">Parks Canada shuttle</a> from the Lake Louise Park &amp; Ride (needs a ride there)</td></tr>
+      <tr><td>Canmore → Calgary airport</td><td>Cheapest coach that fits, e.g. FlixBus</td><td>~2–2½ h</td><td class="r">~CA$40 <span class="chip">est</span></td><td><a href="https://www.banffjaspercollection.com/brewster-express/" target="_blank" rel="noopener">Brewster Express</a> or Banff Airporter, CA$75–95</td></tr>
+      <tr><td>Calgary → Vancouver</td><td id="xf_dom">Air Canada 12:45, or Flair / WestJet</td><td>~1 h 40 m</td><td class="r">₱8,600–10,462 <span class="chip">Google Flights</span></td><td>Rider Express bus Banff → Vancouver, 12+ h</td></tr>
+      <tr id="xf_yvr"></tr>
+      <tr id="xf_vdt"></tr>
+      <tr id="xf_pcs"></tr>
+      <tr><td>Vancouver local</td><td><a href="https://www.translink.ca" target="_blank" rel="noopener">TransLink</a> Compass DayPass or tap-to-pay</td><td>—</td><td class="r">~CA$12/day <span class="chip">est</span></td><td>Walk: downtown is compact</td></tr>
+      <tr><td>Vancouver → Sea to Sky Gondola (optional)</td><td><a href="https://www.seatoskygondola.com/shuttle" target="_blank" rel="noopener">Squamish Connector</a></td><td>~1 h</td><td class="r">CA$40 return <span class="chip">2026</span></td><td>Coach tour with Whistler</td></tr>
+      <tr><td>Vancouver → Seattle</td><td><a href="https://www.amtrak.com/cascades" target="_blank" rel="noopener">Amtrak Cascades</a> 517 (morning)</td><td>~4–4½ h</td><td class="r">US$40–85 <span class="chip">2026</span></td><td>FlixBus; Amtrak Thruway bus</td></tr>
+      <tr id="xf_sdt"></tr>
+      <tr id="xf_sea"></tr>
+      <tr><td>Seattle → Bainbridge</td><td>Washington State Ferries walk-on</td><td>35 min</td><td class="r">US$11.35 return <span class="chip">2026</span></td><td>—</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="flights">
+  <div class="sechead"><span class="eyebrow">Flights · Manila ↔ Canada &amp; US</span></div>
+  <h3>Going: Manila → Edmonton</h3>
+  <div class="fcards" id="fcOut"></div>
+  <h3>Coming home: Seattle → Manila, Wed 23 June</h3>
+  <div class="fcards" id="fcHome"></div>
+</section>
+
+<!-- ============ FOOD ============ -->
+<section id="food">
+  <div class="sechead"><span class="eyebrow">Food</span></div>
+  <div class="food" id="foodList"></div>
+</section>
+
+<section id="souvenirs">
+  <div class="sechead"><span class="eyebrow">Souvenirs · one from every new place</span></div>
+  <div class="food" id="souvList"></div>
+</section>
+
+<!-- ============ BUDGET ============ -->
+<section id="budget">
+  <div class="sechead"><span class="eyebrow">Budget · per person</span>
+  <p class="fx" id="fxNote"></p></div>
+  <div class="sticky" id="stickyTotal" aria-live="polite"></div>
+  <div class="totals" id="totals"></div>
+  <div class="ctrls">
+    <div class="ctrl" hidden><span class="clabel" id="lbFare">Fare level</span><div class="seg" role="group" aria-labelledby="lbFare"><button type="button" data-seg="fare" data-val="low">Low end</button><button type="button" data-seg="fare" data-val="mid">Midpoint</button><button type="button" data-seg="fare" data-val="high">High end</button></div></div>
+    <div class="ctrl"><span class="clabel" id="lbFood">Food</span><div class="seg" role="group" aria-labelledby="lbFood"><button type="button" data-seg="food" data-val="plan">₱200k plan</button><button type="button" data-seg="food" data-val="mid">Mid-range</button><button type="button" data-seg="food" data-val="comfort">Comfortable</button></div></div>
+    <div class="ctrl" hidden><span class="clabel" id="lbCont">Contingency</span><div class="seg" role="group" aria-labelledby="lbCont"><button type="button" data-seg="cont" data-val="5">5%</button><button type="button" data-seg="cont" data-val="10">10%</button></div></div>
+    <div class="ctrl reset"><button type="button" class="ghost" id="resetPlan">Reset to the ₱200k plan</button></div>
+  </div>
+  <h3>Flights</h3>
+  <div class="hotels" id="flightPick"></div>
+  <h3>Hotels</h3>
+  <div class="hotels" id="hotelListB"></div>
+  <h3>Extras</h3>
+  <div class="hotels" id="addonList"></div>
+  <div class="bars" id="bars"></div>
+  <h3>Itemised costs</h3>
+  <div class="tablewrap stackwrap"><table class="grid stack" id="btable"></table></div>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section id="checklist">
+  <div class="sechead"><span class="eyebrow">Booking &amp; prep checklist</span></div>
+  <div class="check" id="checkList"></div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section id="refs">
+  <div class="sechead"><span class="eyebrow">Sources</span></div>
+  <div class="refs">
+    <h4>Entry</h4><ul>
+      <li><a href="https://www.pna.gov.ph/articles/1203030" target="_blank" rel="noopener">PNA: eTA for eligible Filipinos</a></li>
+      <li><a href="https://gulfnews.com/business/tourism/is-canada-truly-visa-free-for-filipinos-here-is-what-you-need-to-know-1.500401737" target="_blank" rel="noopener">Gulf News: eTA is air-only</a></li></ul>
+    <h4>Edmonton</h4><ul>
+      <li><a href="https://www.edmonton.ca/ets/edmonton-international-airport.aspx" target="_blank" rel="noopener">ETS Route 747</a></li>
+      <li><a href="https://www.edmonton.ca/attractions_events/muttart_conservatory/directions-maps-parking" target="_blank" rel="noopener">Muttart hours &amp; admission</a></li>
+      <li><a href="https://www.edmontonstreetcars.ca/highlevelbridge" target="_blank" rel="noopener">High Level Bridge Streetcar</a></li>
+      <li><a href="https://www.parkbus.ca/elkisland" target="_blank" rel="noopener">Parkbus Elk Island</a></li>
+      <li><a href="https://parks.canada.ca/elkisland" target="_blank" rel="noopener">Elk Island National Park</a></li></ul>
+    <h4>Getting to Banff</h4><ul>
+      <li><a href="https://www.checkmybus.com/edmonton-ab/banff-ab" target="_blank" rel="noopener">CheckMyBus: Edmonton–Banff timetables</a></li>
+      <li><a href="https://www.riderexpress.ca/en/sales/trip-search-results?from=edmonton-downtown&amp;to=banff" target="_blank" rel="noopener">Rider Express Edmonton–Banff</a></li>
+      <li><a href="https://www.banffjaspercollection.com/brewster-express/faqs" target="_blank" rel="noopener">Brewster Express FAQ</a></li></ul>
+    <h4>Banff</h4><ul>
+      <li><a href="https://www.parks.canada.ca/pn-np/ab/banff/visit/tarifs-fees" target="_blank" rel="noopener">Parks Canada: Banff fees</a></li>
+      <li><a href="https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise" target="_blank" rel="noopener">Parks Canada: Lake Louise &amp; Moraine shuttle</a></li>
+      <li><a href="https://thebanffguide.com/roam-transit-banff-guide/" target="_blank" rel="noopener">Roam Super Pass 2026</a></li>
+      <li><a href="https://roamtransit.com/schedules-routes/summer-banff-lklouise-regional-route-eight-8x-express/" target="_blank" rel="noopener">Roam Route 8X</a></li>
+      <li><a href="https://www.banffjaspercollection.com/attractions/banff-gondola/stories/getting-to-the-banff-gondola/" target="_blank" rel="noopener">Banff Gondola: free transit</a></li>
+      <li><a href="https://banffbound.com/blog/lake-minnewanka-cruise-tickets" target="_blank" rel="noopener">Lake Minnewanka cruise prices</a></li>
+      <li><a href="https://prod.banffjaspercollection.com/attractions/lake-minnewanka-cruise/location-hours" target="_blank" rel="noopener">Minnewanka 2027 sailing times</a></li>
+      <li><a href="https://www.todocanada.ca/johnston-canyon-trail-in-banff-national-park-closed-until-december-11-heres-what-visitors-need-to-know/" target="_blank" rel="noopener">Johnston Canyon 2026 closure</a></li>
+      <li><a href="https://canadabuys.canada.ca/en/tender-opportunities/tender-notice/cb-919-95288166" target="_blank" rel="noopener">Johnston Canyon remediation contract</a></li>
+      <li><a href="https://www.travelbanffcanada.com/banff-in-june/" target="_blank" rel="noopener">Banff in June conditions</a></li></ul>
+    <h4>Vancouver</h4><ul>
+      <li><a href="https://www.translink.ca/transit-fares/transferring-and-addfare" target="_blank" rel="noopener">TransLink YVR AddFare</a></li>
+      <li><a href="https://www.seatoskygondola.com/shuttle" target="_blank" rel="noopener">Sea to Sky Gondola shuttle</a></li>
+      <li><a href="https://www.capbridge.com/shuttle-schedule/" target="_blank" rel="noopener">Capilano free shuttle</a></li></ul>
+    <h4>International flights</h4><ul>
+      <li><a href="https://www.aeroroutes.com/eng/250921-cxns26sea" target="_blank" rel="noopener">Cathay Hong Kong–Seattle 2026 times</a></li>
+      <li><a href="https://info.flightmapper.net/flight/Cathay_Pacific_CX_838" target="_blank" rel="noopener">CX838 Hong Kong–Vancouver</a></li>
+      <li><a href="https://www.hopegoo.com/en-us/hot-flights/flight-number/cx906/" target="_blank" rel="noopener">CX906 Manila–Hong Kong</a></li>
+      <li><a href="https://info.flightmapper.net/flight/Korean_Air_KE_71" target="_blank" rel="noopener">KE71 Seoul–Vancouver</a></li>
+      <li><a href="https://www.airportoverview.com/routes/SEA/ICN" target="_blank" rel="noopener">Seattle–Seoul schedules</a></li>
+      <li><a href="https://www.hopegoo.com/en-us/hot-flights/flight-number/ke623/" target="_blank" rel="noopener">KE623 Seoul–Manila</a></li>
+      <li><a href="https://info.flightmapper.net/flight/JAL_JL_67" target="_blank" rel="noopener">JL67 Seattle–Narita</a></li>
+      <li><a href="https://www.jal.co.jp/flights/en-ph/flight-resumption-asia" target="_blank" rel="noopener">JAL Tokyo–Manila schedule</a></li>
+      <li><a href="https://www.airportoverview.com/routes/MNL/YVR" target="_blank" rel="noopener">Manila–Vancouver nonstop schedules</a></li>
+      <li><a href="https://flights.philippineairlines.com/en-ph/flights-from-manila-to-edmonton" target="_blank" rel="noopener">Philippine Airlines Manila–Edmonton fares</a></li>
+      <li><a href="https://www.koreanair.com/flights/en-us/flights-from-seattle-to-manila" target="_blank" rel="noopener">Korean Air Seattle–Manila fares</a></li>
+      <li><a href="https://flights.evaair.com/en/flights-from-seattle-to-philippines" target="_blank" rel="noopener">EVA Air Seattle–Manila fares</a></li>
+      <li><a href="https://flights.cathaypacific.com/destinations/en_US/flights-from-seattle-to-manila" target="_blank" rel="noopener">Cathay Pacific Seattle–Manila fares</a></li>
+      <li><a href="https://flights.cathaypacific.com/destinations/en_HK/flights-from-manila-to-vancouver" target="_blank" rel="noopener">Cathay Pacific Manila–Vancouver fares</a></li>
+      <li><a href="https://aeo.washinmura.jp/ai/cathay-pacific-airways-limited/en/news/2026-04-01-cathay-to-operate-hong-kong-seattle-rout" target="_blank" rel="noopener">Cathay Hong Kong–Seattle relaunch</a></li>
+      <li><a href="https://www.cheapflights.com.ph/flights-to-Edmonton-Intl/Manila/" target="_blank" rel="noopener">Cheapflights Manila–Edmonton</a></li>
+      <li><a href="https://www.farecompare.com/flights/Seattle-SEA/Manila-MNL/market.html" target="_blank" rel="noopener">FareCompare Seattle–Manila</a></li></ul>
+    <h4>Seattle &amp; flights</h4><ul>
+      <li><a href="https://www.zadrails.com/blog/how-to-travel-from-seattle-to-vancouver-by-amtrak/" target="_blank" rel="noopener">Amtrak Cascades schedule summary</a></li>
+      <li><a href="https://raillynews.com/2026/10/amtrak-cascades-schedule-change/" target="_blank" rel="noopener">Amtrak Cascades schedule change, Oct 2026</a></li>
+      <li><a href="https://visitseattle.org/visitor-information/getting-around/" target="_blank" rel="noopener">Visit Seattle: getting around</a></li>
+      <li><a href="https://tripjive.com/seattle-to-bainbridge-island-ferry-guide/" target="_blank" rel="noopener">Bainbridge ferry fares</a></li>
+      <li><a href="https://www.priceline.com/hotel-deals/en-us/P3000023414/H59056/surestay-hotel-by-best-western-seatac-airport-north.ssp" target="_blank" rel="noopener">SureStay by Best Western SeaTac Airport North</a></li>
+      <li><a href="https://www.directflights.com/SEA-MNL" target="_blank" rel="noopener">PAL Seattle–Manila schedule</a></li></ul>
+    <h4>Exchange rates</h4><ul>
+      <li><a href="https://www.google.com/finance/quote/CAD-PHP" target="_blank" rel="noopener">Google Finance CAD–PHP, 6 Nov 2026</a></li>
+      <li><a href="https://www.google.com/finance/quote/USD-PHP" target="_blank" rel="noopener">Google Finance USD–PHP, 6 Nov 2026</a></li></ul>
+  </div>
+</section>
+
+
+</div>
+
+<script>
+(function(){
+  // ---------- theme toggle ----------
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  function setTheme(t){ if(t){root.setAttribute('data-theme',t);}else{root.removeAttribute('data-theme');} btn.textContent = t==='dark'?'Dark':t==='light'?'Light':'Auto theme'; }
+  var saved=null; try{saved=localStorage.getItem('rk-theme');}catch(e){}
+  setTheme(saved);
+  btn.addEventListener('click',function(){ var cur=root.getAttribute('data-theme'); var nx = !cur?'dark':cur==='dark'?'light':null; setTheme(nx); try{ nx?localStorage.setItem('rk-theme',nx):localStorage.removeItem('rk-theme'); }catch(e){} });
+
+  // ---------- tabs ----------
+  var secs=[].slice.call(document.querySelectorAll('.wrap > section'));
+  var tabs=[].slice.call(document.querySelectorAll('nav.toc a'));
+  function showTab(){
+    var id=(location.hash||'').slice(1);
+    if(!secs.some(function(x){return x.id===id;})) id='overview';
+    secs.forEach(function(x){x.hidden = x.id!==id;});
+    tabs.forEach(function(a){ if(a.getAttribute('href')==='#'+id){a.setAttribute('aria-current','page'); try{a.scrollIntoView({block:'nearest',inline:'nearest'});}catch(e){}} else a.removeAttribute('aria-current'); });
+    window.scrollTo(0,0);
+  }
+  secs.forEach(function(sec,i){
+    var nv=document.createElement('nav'); nv.className='tabnext'; nv.setAttribute('aria-label','Next and previous section');
+    var prev=secs[i-1], next=secs[i+1];
+    function lab(x){ var a=document.querySelector('nav.toc a[href="#'+x.id+'"]'); return a?a.textContent:x.id; }
+    nv.innerHTML=(prev?'<a href="#'+prev.id+'">← '+lab(prev)+'</a>':'<span></span>')+(next?'<a href="#'+next.id+'">'+lab(next)+' →</a>':'<span></span>');
+    sec.appendChild(nv);
+  });
+  window.addEventListener('hashchange',showTab); showTab();
+  [].slice.call(document.querySelectorAll('table.grid.stack')).forEach(function(t){ if(t.id!=='btable') stackLabels(t); });
+
+  // ---------- expand/collapse ----------
+  var days=[].slice.call(document.querySelectorAll('details.day'));
+  document.getElementById('openAll').onclick=function(){days.forEach(function(d){d.open=true;});};
+  document.getElementById('closeAll').onclick=function(){days.forEach(function(d){d.open=false;});};
+
+  // ---------- budget builder ----------
+  var FX={CAD:44.91, USD:63.01, PHP:1}, PAX=3, TARGET=200000;
+  var HOTELS={
+    edm:{name:'Edmonton',nights:[1,2,3],cur:'CAD',opts:[
+      ['edm1','plan','Sandman Signature Edmonton Downtown','10235 101 St · underground walkway to Churchill LRT, rooftop pool','CA$745 for 3 nights',248.33],
+      ['edm2','plan','Days Inn by Wyndham Edmonton Downtown','10041 106 St · across the street from an LRT station','CA$260–300 (est)',280],
+      ['edm3','plan','Best Western Plus City Centre Inn','~2 km from downtown · near rapid transit, indoor pool','CA$260–300 (est)',280],
+      ['edm4','mid','Holiday Inn Express Edmonton Downtown','10010 104 St · short walk to Central and Bay LRT','CA$270–320 (est)',295],
+      ['edm5','mid','Courtyard by Marriott Edmonton Downtown','Steps from Central LRT','CA$300–360 (est)',330],
+      ['edm6','mid','Delta Hotels Edmonton Centre Suites','ICE District · connected to the downtown pedway','CA$310–370 (est)',340],
+      ['edm7','comfort','The Westin Edmonton','Downtown core · near Central LRT','CA$380–450 (est)',415],
+      ['edm8','comfort','JW Marriott Edmonton ICE District','ICE District · near Bay/Enterprise Square LRT','CA$450–550 (est)',500],
+      ['edm9','comfort','Fairmont Hotel Macdonald','Beside the river valley funicular · valley views','CA$480–600 (est)',540]]},
+    bnf:{name:'Canmore',nights:[4,5,6,7,8],cur:'CAD',opts:[
+      ['bnf1','plan','Grande Rockies Resort','901 Mountain Ave · suites with kitchens, pool','₱79,000 for 5 nights',351.11],
+      ['bnf2','plan','Canmore Rocky Mountain Inn','Bow Valley Trail · motel-style, near Route 3','CA$360–420 (est)',390],
+      ['bnf3','plan','Coast Canmore Hotel','Bow Valley Trail · pool, on the bus corridor','CA$370–430 (est)',400],
+      ['bnf4','mid','Basecamp Lodge Canmore','Bow Valley Trail · rooms with bunks for groups','CA$420–500 (est)',460],
+      ['bnf5','mid','Stoneridge Mountain Resort','Three Sisters area · kitchen suites, uphill from town','CA$420–500 (est)',460],
+      ['bnf6','mid','Blackstone Mountain Lodge','Edge of town · kitchen suites, outdoor hot tubs','CA$450–550 (est)',500],
+      ['bnf7','comfort','Solara Resort','Bow Valley Trail · spa, kitchen suites','CA$500–650 (est)',575],
+      ['bnf8','comfort','The Malcolm Hotel','Near Main Street · upscale, river views','CA$550–700 (est)',625],
+      ['bnf9','comfort','Stay in Banff instead','Any Banff hotel · no daily bus to Banff','From ~₱100,000 for 5 nights',445]]},
+    van:{name:'Vancouver',nights:[9,10],cur:'CAD',opts:[
+      ['van1','plan','Abercorn Hotel, Trademark Collection by Wyndham','9260 Bridgeport Rd, Richmond · free airport shuttle, 8 min walk to Bridgeport','₱34,000 for 2 nights',377.78],
+      ['van2','plan','River Rock Casino Resort','Richmond · covered walkway to Bridgeport station, no shuttle or breakfast','₱45,000 for 2 nights',500],
+      ['van3','plan','Cheapest downtown hotel','Downtown Vancouver · walk to sights and the train','₱50,000 for 2 nights',555.56],
+      ['van4','mid','Hampton Inn & Suites Vancouver-Downtown','Near Yaletown · breakfast usually included','CA$580–660 (est)',620],
+      ['van5','mid','Georgian Court Hotel','Opposite BC Place · near Stadium–Chinatown','CA$600–680 (est)',640],
+      ['van6','mid','Hilton Vancouver Downtown','433 Robson St · near Granville station','CA$640–720 (est)',680],
+      ['van7','comfort','Fairmont Pacific Rim','Coal Harbour waterfront','CA$950+ (est)',1000],
+      ['van8','comfort','Pan Pacific Vancouver','Above Canada Place · harbour views','CA$850–950 (est)',900],
+      ['van9','comfort','Fairmont Hotel Vancouver','Historic landmark · near Burrard station','CA$800–900 (est)',850]]},
+    sea:{name:'Seattle',nights:[11,12,13],cur:'USD',opts:[
+      ['sea1','plan','SureStay by Best Western SeaTac Airport North','3000 S 176th St · 4–5 min walk to SeaTac/Airport Link, free airport shuttle, 3-queen rooms','₱25,000 for 3 nights',131.23],
+      ['sea2','plan','Best Western Plus Pioneer Square Hotel Downtown','Pioneer Square · walk to King Street Station and Link','US$200–250 (est)',230],
+      ['sea3','plan','Silver Cloud Hotel Seattle Stadium','1046 1st Ave S · Stadium Link 1½ blocks, Amtrak 3 blocks, rooftop pool','US$230–300 (est)',265],
+      ['sea4','mid','Courtyard Seattle Downtown/Pioneer Square','Pioneer Square · near Link','US$280–340 (est)',310],
+      ['sea5','mid','Hyatt Place Seattle/Downtown','Near Westlake · breakfast usually included','US$290–350 (est)',320],
+      ['sea6','mid','Hilton Garden Inn Seattle Downtown','Downtown core · near Westlake','US$280–340 (est)',310],
+      ['sea7','comfort','Inn at the Market','At Pike Place Market · bay views','US$450–600 (est)',525],
+      ['sea8','comfort','Fairmont Olympic Hotel','Historic downtown grand hotel','US$450–600 (est)',525],
+      ['sea9','comfort','Thompson Seattle','Near Pike Place · rooftop bar','US$450–550 (est)',500]]}
+  };
+  var FLIGHTS={
+    out:[['A','China Airlines + WestJet via Taipei and Vancouver','Leaves Manila 16:50 Thu 10 June, lands Edmonton 00:44 Fri 11 June',44190,44190,0,
+          [['s','MNL','16:50','TPE','','China Airlines','gf'],['l','Taipei','4 h 30 m','Stay airside'],['s','TPE','','YVR','','China Airlines','gf'],['l','Vancouver','2 h 50 m','Canada immigration, re-check bags'],['s','YVR','','YEG','00:44 (+1)','WestJet','gf']],'21 h 54 m','Cheapest; lands after midnight'],
+         ['B','EVA Air + Air Canada via Taipei and Vancouver','Leaves Manila 18:50 Thu 10 June, lands Edmonton 00:04 Fri 11 June',51680,51680,0,
+          [['s','MNL','18:50','TPE','','EVA Air','gf'],['l','Taipei','2 h 5 m','Stay airside'],['s','TPE','','YVR','','EVA Air','gf'],['l','Vancouver','1 h 50 m','Canada immigration, re-check bags'],['s','YVR','','YEG','00:04 (+1)','Air Canada','gf']],'19 h 14 m','Lands just after midnight'],
+         ['C','Philippine Airlines + WestJet via Vancouver and Calgary','Leaves Manila 20:10 Thu 10 June, lands Edmonton 22:55 the same day',57784,57784,0,
+          [['s','MNL','20:10','YVR','','Philippine Airlines','gf'],['l','Vancouver','1 h 45 m','Canada immigration, re-check bags'],['s','YVR','','YYC','','WestJet','gf'],['l','Calgary','45 m','Tight; stay airside'],['s','YYC','','YEG','22:55','WestJet','gf']],'16 h 45 m','Lands late evening of 10 June'],
+         ['D','Philippine Airlines + WestJet via Vancouver','Leaves Manila 11:05 Thu 10 June, lands Edmonton 13:50 the same day',62112,62112,0,
+          [['s','MNL','11:05','YVR','','Philippine Airlines','gf'],['l','Vancouver','3 h 15 m','Canada immigration, re-check bags'],['s','YVR','','YEG','13:50','WestJet','gf']],'16 h 45 m','Lands early afternoon of 10 June'],
+         ['E','Cathay Pacific + WestJet via Hong Kong and Vancouver','Leaves Manila 12:30 Thu 10 June, lands Edmonton 17:10 the same day',64209,64209,0,
+          [['s','MNL','12:30','HKG','','Cathay Pacific','gf'],['l','Hong Kong','55 m','Stay airside'],['s','HKG','','YVR','','Cathay Pacific','gf'],['l','Vancouver','1 h 35 m','Canada immigration, re-check bags'],['s','YVR','','YEG','17:10','WestJet','gf']],'18 h 40 m','Lands late afternoon of 10 June']],
+    home:[['A','Air Canada + ANA via Vancouver and Tokyo Narita','Leaves Seattle 10:00 Wed 23 June, lands Manila 21:15 Thu 24 June',34335,34335,0,
+          [['s','SEA','10:00','YVR','','Air Canada Express','gf'],['l','Vancouver','1 h 54 m','Transfer'],['s','YVR','','NRT','','Air Canada','gf'],['l','Tokyo Narita','2 h 35 m','Stay airside'],['s','NRT','','MNL','21:15 (+1)','ANA','gf']],'20 h 15 m','Cheapest; leaves Seattle in the morning'],
+          ['B','Cathay Pacific via Hong Kong','Leaves Seattle 12:25 Wed 23 June, lands Manila 00:15 Fri 25 June',38894,38894,0,
+          [['s','SEA','12:25','HKG','','Cathay Pacific','gf'],['l','Hong Kong','5 h 10 m','Stay airside'],['s','HKG','','MNL','00:15 (+2)','Cathay Pacific','gf']],'20 h 50 m','Lands just after midnight'],
+          ['C','United via San Francisco','Leaves Seattle 10:45 Wed 23 June, lands Manila 19:00 Thu 24 June',51139,51139,0,
+          [['s','SEA','10:45','SFO','','United','gf'],['l','San Francisco','1 h 12 m','Stay airside'],['s','SFO','','MNL','19:00 (+1)','United','gf']],'17 h 15 m','Fastest one-stop'],
+          ['D','Philippine Airlines nonstop','Leaves Seattle 23:55 Wed 23 June, lands Manila 04:25 Fri 25 June',53756,53756,0,
+          [['s','SEA','23:55','MNL','04:25 (+2)','Philippine Airlines','gf']],'13 h 30 m','Nonstop; full last day in Seattle']]
+  };
+  var ADDONS=[
+    ['seatosky','Sea to Sky Gondola + Shannon Falls by shuttle','Day 10 · replaces the Stanley Park day',10,'CAD',125],
+    ['brewster','Brewster/Banff Airporter instead of FlixBus to Calgary airport','Day 9 · more departures, airport drop-off',9,'CAD',45],
+    ['bike','Stanley Park bike rental','Day 10 · full seawall loop',10,'CAD',40],
+    ['capilano','Capilano Suspension Bridge','Day 9 evening or 10 · free downtown shuttle',10,'CAD',82],
+    ['canoe','Lake Louise canoe rental (shared by 3)','Day 5 · price not checked, estimate',5,'CAD',50]
+  ];
+  var FOOD={plan:[1,'Plan: supermarket breakfasts, sit-down lunch, light dinners'],mid:[1.3,'Mid-range: café breakfasts, sit-down lunch and dinner'],comfort:[1.6,'Comfortable: sit-down meals all day, nicer dinners']};
+  var DEF={hotel:{edm:'edm1',bnf:'bnf1',van:'van1',sea:'sea1'},out:'A',home:'A',fare:'low',food:'plan',add:{},cont:0,dom:'ac1245'};
+  var S=JSON.parse(JSON.stringify(DEF));
+  try{ var sv=JSON.parse(localStorage.getItem('rk-builder9')||'null'); if(sv&&sv.hotel){ S=sv; } }catch(e){}
+  function save(){ try{localStorage.setItem('rk-builder9',JSON.stringify(S));}catch(e){} }
+  function hotelOf(k){ var h=HOTELS[k]; for(var i=0;i<h.opts.length;i++) if(h.opts[i][0]===S.hotel[k]) return h.opts[i]; return h.opts[0]; }
+  var FLIGHT_ALLOWANCE=85000;
+  var DOMFL=[['ac1245','Air Canada','12:45','13:26',8998],['ac1445','Air Canada','14:45','15:22',8998],['wj1300','WestJet','13:00','13:40',10462],['wj1405','WestJet','14:05','14:40',10462],['f1530','Flair Airlines','15:30','16:10',8600],['ac1015','Air Canada','10:15','10:56',8998],['f1020','Flair Airlines','10:20','11:00',8600]];
+  function domOf(){ return DOMFL.filter(function(x){return x[0]===S.dom;})[0]||DOMFL[0]; }
+  function fare(f){ return S.fare==='low'?f[3]:S.fare==='high'?f[4]:Math.round((f[3]+f[4])/2/500)*500; }
+  function flightOf(dir){ var L=FLIGHTS[dir]; for(var i=0;i<L.length;i++) if(L[i][0]===S[dir]) return L[i]; return L[0]; }
+
+  var baseItems=[
+    {d:1,c:'Food',l:'Snacks in transit',cur:'CAD',a:15,u:'pp',src:'est',k:'food'},
+    {d:2,c:'Food',l:'Meals & coffee',cur:'CAD',a:52,u:'pp',src:'est',k:'food'},
+    {d:3,c:'Food',l:'Meals & coffee',cur:'CAD',a:52,u:'pp',src:'est',k:'food'},
+    {d:4,c:'Food',l:'Meals, bus snacks',cur:'CAD',a:49,u:'pp',src:'est',k:'food'},
+    {d:5,c:'Food',l:'Meals, packed lunch from the suite',cur:'CAD',a:52,u:'pp',src:'est',k:'food'},
+    {d:6,c:'Food',l:'Suite breakfast, lunch, light dinner',cur:'CAD',a:48,u:'pp',src:'est',k:'food'},
+    {d:7,c:'Food',l:'Suite breakfast, lunch, light dinner',cur:'CAD',a:50,u:'pp',src:'est',k:'food'},
+    {d:8,c:'Food',l:'Suite breakfast, farewell lunch, light dinner',cur:'CAD',a:45,u:'pp',src:'est',k:'food'},
+    {d:9,c:'Food',l:'Meals, airport lunch',cur:'CAD',a:52,u:'pp',src:'est',k:'food'},
+    {d:10,c:'Food',l:'Breakfast, market lunch, dinner',cur:'CAD',a:55,u:'pp',src:'est',k:'food'},
+    {d:11,c:'Food',l:'Meals, train café',cur:'USD',a:46,u:'pp',src:'est',k:'food'},
+    {d:12,c:'Food',l:'Meals & coffee',cur:'USD',a:44,u:'pp',src:'est',k:'food'},
+    {d:13,c:'Food',l:'Meals on tour day',cur:'USD',a:47,u:'pp',src:'est',k:'food'},
+    {d:14,c:'Food',l:'Breakfast, airport lunch',cur:'USD',a:28,u:'pp',src:'est',k:'food'},
+
+
+    {d:1,c:'Transport',l:'Taxi from YEG after midnight',cur:'CAD',a:60,u:'grp',src:'est'},
+    {d:2,c:'Transport',l:'ETS day (daily cap)',cur:'CAD',a:10.5,u:'pp',src:'2026'},
+    {d:3,c:'Transport',l:'ETS day (daily cap)',cur:'CAD',a:10.5,u:'pp',src:'2026'},
+    {d:3,c:'Transport',l:'Route 747 return to the outlet mall',cur:'CAD',a:12,u:'pp',src:'2026'},
+    {d:4,c:'Transport',l:'FlixBus Edmonton → Canmore',cur:'CAD',a:38,u:'pp',src:'est'},
+    {d:5,c:'Transport',l:'Roam Reservable Super Pass',cur:'CAD',a:30,u:'pp',src:'2026'},
+    {d:6,c:'Transport',l:'Roam Route 3 Canmore–Banff, return',cur:'CAD',a:12,u:'pp',src:'2026'},
+    {d:7,c:'Transport',l:'Roam regional day pass (Route 3 + Route 9)',cur:'CAD',a:15,u:'pp',src:'2026'},
+    {d:4,c:'Transport',l:'Taxi, bus stop to hotel',cur:'CAD',a:15,u:'grp',src:'est'},
+    {d:4,c:'Transport',l:'Taxi, Edmonton hotel to FlixBus stop',cur:'CAD',a:15,u:'grp',src:'est'},
+    {d:9,c:'Transport',l:'Coach Canmore → Calgary airport',cur:'CAD',a:40,u:'pp',src:'est'},
+    {d:11,c:'Transport',l:'Taxi to Pacific Central Station',cur:'CAD',a:45,u:'grp',src:'est'},
+    {d:10,c:'Transport',l:'Compass DayPass + small ferry',cur:'CAD',a:18,u:'pp',src:'est'},
+    {d:11,c:'Transport',l:'Amtrak Cascades coach',cur:'USD',a:55,u:'pp',src:'est'},
+    {d:12,c:'Transport',l:'Bus to Kerry Park, return',cur:'USD',a:6,u:'pp',src:'est'},
+    {d:11,c:'Transport',l:'Link: to hotel, downtown and back',cur:'USD',a:9,u:'pp',src:'2026'},
+    {d:12,c:'Transport',l:'Link to downtown, return',cur:'USD',a:6,u:'pp',src:'2026'},
+    {d:13,c:'Transport',l:'Link to tour pick-up, return',cur:'USD',a:6,u:'pp',src:'2026'},
+
+    {d:2,c:'Attractions',l:'Muttart Conservatory',cur:'CAD',a:14.95,u:'pp',src:'2026'},
+    {d:2,c:'Attractions',l:'High Level Bridge Streetcar',cur:'CAD',a:10,u:'pp',src:'est'},
+    {d:5,c:'Attractions',l:'Banff park pass, 14 June',cur:'CAD',a:12.25,u:'pp',src:'2026'},
+    {d:6,c:'Attractions',l:'Banff park pass, 15 June',cur:'CAD',a:12.25,u:'pp',src:'2026'},
+    {d:7,c:'Attractions',l:'Banff park pass, 16 June',cur:'CAD',a:12.25,u:'pp',src:'2026'},
+    {d:6,c:'Attractions',l:'Banff Gondola',cur:'CAD',a:75,u:'pp',src:'est'},
+    {d:6,c:'Attractions',l:'Banff Upper Hot Springs',cur:'CAD',a:19.75,u:'pp',src:'2026'},
+    {d:7,c:'Attractions',l:'Lake Minnewanka Classic Cruise',cur:'CAD',a:75,u:'pp',src:'2026'},
+    {d:12,c:'Attractions',l:'Bainbridge ferry walk-on',cur:'USD',a:11.35,u:'pp',src:'2026'},
+    {d:13,c:'Attractions',l:'Mt Rainier small-group tour',cur:'USD',a:165,u:'pp',src:'est'},
+    {d:13,c:'Attractions',l:'Guide tip',cur:'USD',a:25,u:'pp',src:'est'},
+
+
+    {d:0,c:'Other',l:'Canada eTA',cur:'CAD',a:7,u:'pp',src:'2026'},
+    {d:0,c:'Other',l:'Travel insurance, Canada + US, 15 days',cur:'PHP',a:2000,u:'pp',src:'est'},
+    {d:0,c:'Other',l:'eSIM for Canada + US, 2 weeks',cur:'CAD',a:30,u:'pp',src:'est'},
+    {d:0,c:'Other',l:'Tips, laundry, toiletries, incidentals',cur:'CAD',a:30,u:'pp',src:'est'}
+  ];
+  function buildItems(){
+    var it=[];
+    ['edm','bnf','van','sea'].forEach(function(k){ var h=HOTELS[k], o=hotelOf(k);
+      h.nights.forEach(function(d,n){ it.push({d:d,c:'Stay',l:o[2]+', night '+(n+1),cur:h.cur,a:o[5],u:'grp',src:/^[^F].* for \d nights$/.test(o[4])?'quote':'est'}); });
+    });
+    var fo=flightOf('out'), fh=flightOf('home');
+    it.push({d:0,c:'Flights',l:'Manila → Edmonton · '+fo[1],cur:'PHP',a:fo[3],u:'pp',src:'2026'});
+    var dm0=domOf(); it.push({d:9,c:'Flights',l:'Calgary → Vancouver · '+dm0[1]+' '+dm0[2]+' (bag fee extra)',cur:'PHP',a:dm0[4],u:'pp',src:'2026'});
+    it.push({d:0,c:'Flights',l:'Seattle → Manila · '+fh[1],cur:'PHP',a:fh[3],u:'pp',src:'2026'});
+    if(fo[5]) it.push({d:1,c:'Stay',l:'Extra Edmonton night (9 June arrival)',cur:'CAD',a:hotelOf('edm')[5],u:'grp',src:'est'});
+    baseItems.forEach(function(b){ var x=Object.assign({},b); if(x.k==='food') x.a=x.a*FOOD[S.food][0]; it.push(x); });
+    ADDONS.forEach(function(a){ if(S.add[a[0]]) it.push({d:a[3],c:'Attractions',l:a[1]+' (add-on)',cur:a[4],a:a[5],u:'pp',src:'est'}); });
+    return it;
+  }
+  function grp(i){ return i.a*(i.u==='pp'?PAX:1); }
+  function php(v,cur){ return v*FX[cur]; }
+  function fmt(v,cur){ var s=Math.round(v).toLocaleString('en-US'); return (cur==='CAD'?'CA$':cur==='USD'?'US$':'₱')+s; }
+
+  var TIERNAME={plan:'₱200k plan',mid:'Mid-range',comfort:'Comfortable'};
+  function buildControls(){
+    ['','B'].forEach(function(px){ var box=document.getElementById('hotelList'+px); if(!box) return;
+    box.innerHTML='<div class="hsels">'+['edm','bnf','van','sea'].map(function(k){var h=HOTELS[k];
+      return '<div class="hsel"><label for="hs'+px+'_'+k+'"><b>'+h.name+'</b> <span class="muted">· '+h.nights.length+' nights · '+STAYDATES[k]+'</span></label><select id="hs'+px+'_'+k+'" name="h_'+k+'">'+
+        ['plan','mid','comfort'].map(function(t){
+          return '<optgroup label="'+TIERNAME[t]+'">'+h.opts.filter(function(o){return o[1]===t;}).map(function(o){
+            return '<option value="'+o[0]+'">'+o[2]+' · '+fmt(o[5],h.cur)+'/night</option>';}).join('')+'</optgroup>';
+        }).join('')+'</select><div class="hn" id="hsum'+px+'_'+k+'"></div></div>';}).join('')+'</div>';
+    });
+    function flist(dir,title){
+      return '<div class="hsel"><label for="fs_'+dir+'"><b>'+title+'</b></label><select id="fs_'+dir+'" name="f_'+dir+'">'+FLIGHTS[dir].map(function(f){
+        var stops=f[6].filter(function(g){return g[0]==='l';}).length;
+        return '<option value="'+f[0]+'">'+f[0]+' · '+f[1]+' · '+(stops?stops+(stops>1?' stops':' stop'):'nonstop')+' · '+fmt(f[3],'PHP')+'</option>';
+      }).join('')+'</select><div class="hn" id="fsum_'+dir+'"></div></div>';
+    }
+    document.getElementById('flightPick').innerHTML='<div class="hsels">'+flist('out','Going · Manila → Edmonton')+flist('home','Coming home · Seattle → Manila')+'<div class="hsel"><label for="fs_dom"><b>Calgary → Vancouver · Fri 18 June</b></label><select id="fs_dom" name="f_dom">'+DOMFL.map(function(x){return '<option value="'+x[0]+'">'+x[1]+' · '+x[2]+' → '+x[3]+' · nonstop · '+fmt(x[4],'PHP')+'</option>';}).join('')+'</select><div class="hn">About 1 h 40 m. Basic fares on Google Flights, 6 Nov 2026; checked bags cost extra. Pick a flight at least 2 h after your coach from Canmore reaches the airport.</div></div></div><p class="fx" id="fcompare"></p>';
+    document.getElementById('addonList').innerHTML='<div class="hcity open"><div class="hc-head"><b>Optional extras</b><span class="muted">per person</span></div>'+ADDONS.map(function(a){var id='a_'+a[0];
+      return '<label class="hrow pick" for="'+id+'"><span class="nm"><input type="checkbox" id="'+id+'" data-add="'+a[0]+'"> <b>'+a[1]+'</b></span><span class="pr">'+fmt(a[5],a[4])+'</span><span class="ds">'+a[2]+'</span></label>';}).join('')+'</div>';
+  }
+  function renderFlightCards(){
+    function card(dir,f){
+      var segs=f[6].map(function(g){
+        if(g[0]==='l') return '<li class="lay"><span class="lc">Layover · '+g[1]+'</span><span class="ld">'+g[2]+'</span><span class="ln">'+g[3]+'</span></li>';
+        return '<li class="seg1"><span class="ap"><b>'+g[1]+'</b> '+g[2]+'</span><span class="arr" aria-hidden="true">→</span><span class="ap"><b>'+g[3]+'</b> '+g[4]+'</span><span class="fn">'+g[5]+' <span class="chip">'+(g[6]==='gf'?'Google Flights':g[6]==='2026'?'2026 timetable':'est')+'</span></span></li>';
+      }).join('');
+      var stops=f[6].filter(function(g){return g[0]==='l';}).length;
+      var inBudget=(S[dir]===f[0]);
+      return '<article class="fcard'+(inBudget?' on':'')+'"><header><div><span class="fopt">'+f[0]+'</span> <b>'+f[1]+'</b></div><span class="fpr">'+fmt(f[3],'PHP')+'<small>'+'per person, one way · Google Flights, 6 Nov 2026'+'</small></span></header>'+
+        '<p class="fsum">'+f[2]+'</p><ol class="segs">'+segs+'</ol><footer><span>'+(stops?stops+(stops>1?' stops':' stop'):'Nonstop')+' · '+f[7]+'</span>'+(inBudget?'<span class="chip prop">In your budget</span>':'')+'</footer></article>';
+    }
+    document.getElementById('fcOut').innerHTML=FLIGHTS.out.map(function(f){return card('out',f);}).join('');
+    document.getElementById('fcHome').innerHTML=FLIGHTS.home.map(function(f){return card('home',f);}).join('');
+  }
+  var STAYDATES={edm:'10–13 June',bnf:'13–18 June',van:'18–20 June',sea:'20–23 June'};
+  function renderHotelTables(){
+    document.getElementById('hotelTables').innerHTML=['edm','bnf','van','sea'].map(function(k){var h=HOTELS[k], cur=hotelOf(k)[0], n=h.nights.length;
+      var rows=['plan','mid','comfort'].map(function(t){
+        return '<tr class="tierrow"><td colspan="4">'+TIERNAME[t]+'</td></tr>'+h.opts.filter(function(o){return o[1]===t;}).map(function(o){
+          var on=o[0]===cur, pn=php(o[5],h.cur);
+          return '<tr'+(on?' class="sel"':'')+'><td class="hn1"><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(o[2]+' '+h.name)+'" target="_blank" rel="noopener"><b>'+o[2]+'</b></a></td><td class="hloc">'+o[3]+'</td><td class="r hpn">'+fmt(pn,'PHP')+'<small>'+fmt(o[5],h.cur)+'</small></td><td class="r htot">'+fmt(pn*n,'PHP')+'</td></tr>';
+        }).join('');
+      }).join('');
+      return '<div class="hblock"><h3>'+h.name+' <span class="muted">· '+n+' nights · '+STAYDATES[k]+'</span></h3><div class="tablewrap"><table class="grid"><thead><tr><th>Hotel</th><th>Location</th><th class="r">Per night</th><th class="r">Stay total ('+n+' nights)</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+    }).join('');
+  }
+  function renderControls(){
+    renderFlightCards();
+    renderHotelTables();
+    ['edm','bnf','van','sea'].forEach(function(k){ var o=hotelOf(k), h=HOTELS[k];
+      ['','B'].forEach(function(px){
+        var el=document.getElementById('hs'+px+'_'+k); if(el) el.value=o[0];
+        var sm=document.getElementById('hsum'+px+'_'+k); if(sm) sm.innerHTML='<span class="tag">'+TIERNAME[o[1]]+'</span>'+o[3]+' · '+o[4]+'/night';
+      });
+    });
+    var dsel=document.getElementById('fs_dom'); if(dsel) dsel.value=domOf()[0];
+    ['out','home'].forEach(function(d){ var f=flightOf(d); var el=document.getElementById('fs_'+d); if(el) el.value=f[0];
+      var fc=document.getElementById('fcompare'); if(fc){ var fo2=FLIGHTS.out.filter(function(x){return x[0]===S.out;})[0], fh2=FLIGHTS.home.filter(function(x){return x[0]===S.home;})[0]; var dm=domOf(), tot=fo2[3]+fh2[3]+dm[4]; fc.innerHTML='Flights in your budget: '+fmt(fo2[3],'PHP')+' + '+fmt(dm[4],'PHP')+' + '+fmt(fh2[3],'PHP')+' = <b>'+fmt(tot,'PHP')+'</b> per person (Google Flights, 6 Nov 2026; Calgary → Vancouver before bag fee).'; }
+      var sm=document.getElementById('fsum_'+d); if(sm) sm.innerHTML=f[6].filter(function(g){return g[0]==='s';}).map(function(g){return g[1]+' '+g[2]+' → '+g[3]+' '+g[4];}).join(' · ')+(f[6].some(function(g){return g[0]==='l';})?'<br>Layover: '+f[6].filter(function(g){return g[0]==='l';}).map(function(g){return g[1]+' '+g[2];}).join(', '):''); });
+    ADDONS.forEach(function(a){ var el=document.getElementById('a_'+a[0]); if(el) el.checked=!!S.add[a[0]]; });
+    [].forEach.call(document.querySelectorAll('[data-seg]'),function(b){ var k=b.dataset.seg, v=b.dataset.val; b.setAttribute('aria-pressed', String(S[k])===v?'true':'false'); });
+  }
+
+  function buildSummary(){
+    [].slice.call(document.querySelectorAll('#summary [data-ci]')).forEach(function(el){ var o=hotelOf(el.getAttribute('data-ci')); el.textContent=o?o[2]:''; });
+  }
+  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('a[data-open]'); if(!a) return; var t=document.getElementById(a.getAttribute('data-open')); if(t){ t.open=true; setTimeout(function(){ t.scrollIntoView({block:'start'}); },30); } });
+
+  function stackLabels(t){ if(!t) return; var th=[].slice.call(t.querySelectorAll('thead th')).map(function(x){return x.textContent.trim();});
+    [].slice.call(t.querySelectorAll('tbody tr, tfoot tr')).forEach(function(tr){ var tds=tr.children; if(tds.length!==th.length){ tr.classList.add('full'); return; } [].slice.call(tds).forEach(function(td,i){ td.setAttribute('data-label',th[i]); if(i>0&&!td.querySelector(':scope > .cv')) td.innerHTML='<span class="cv">'+td.innerHTML+'</span>'; }); }); }
+  // ---------- itinerary follows the chosen flights and hotels ----------
+  function tm(t){ var m=/(\d\d):(\d\d)/.exec(t||''); return m?(+m[1])*60+(+m[2]):0; }
+  function hh(m){ m=((m%1440)+1440)%1440; m=Math.round(m/15)*15; if(m>=1440)m-=1440; var h=Math.floor(m/60), n=m%60; return (h<10?'0':'')+h+':'+(n<10?'0':'')+n; }
+  function plus(t){ var m=/\(\+(\d)\)/.exec(t||''); return m?+m[1]:0; }
+  function li(t,b,how){ return '<span class="t">'+t+'</span><span class="a"><b>'+b+'</b>'+(how?'<span class="how">'+how+'</span>':'')+'</span>'; }
+  function setH(id,h){ var e=document.getElementById(id); if(e) e.innerHTML=h; }
+  function sw(id,useAlt,alt){ var e=document.getElementById(id); if(!e) return; if(e.dataset.orig==null) e.dataset.orig=e.innerHTML;
+    if(!useAlt){ e.innerHTML=e.dataset.orig; e.hidden=false; } else if(alt===null){ e.hidden=true; } else { e.innerHTML=alt; e.hidden=false; } }
+  function peso(n){ return '₱'+Math.round(n).toLocaleString('en-US'); }
+  function addr(o){ return o[3].split(' · ')[0]; }
+  function priceTxt(o){ return /for \d nights/.test(o[4]) ? o[4].replace(/ \((your quote|your search)\)/,'') : o[4].replace(' (est)','')+' per night (est)'; }
+  function syncItin(){
+    var fo=flightOf('out'), fh=flightOf('home'), dm=domOf();
+    var H={}; ['edm','bnf','van','sea'].forEach(function(k){ H[k]=hotelOf(k); });
+    var AREA={ bnf: H.bnf[0]==='bnf9'?'Banff':'Canmore', van:(H.van[0]==='van1'||H.van[0]==='van2')?'Richmond':'Vancouver', sea:H.sea[0]==='sea1'?'SeaTac':'Seattle' };
+    [].forEach.call(document.querySelectorAll('[data-ov]'),function(el){ el.textContent=AREA[el.getAttribute('data-ov')]; });
+    var banff=AREA.bnf==='Banff', rich=AREA.van==='Richmond', seatac=AREA.sea==='SeaTac';
+    // city labels
+    setH('cl_edm','Edmonton · '+H.edm[2]+', '+addr(H.edm)+' · '+priceTxt(H.edm));
+    setH('cl_bnf',AREA.bnf+' · 5 nights at '+(banff?'a Banff hotel':H.bnf[2]+', '+addr(H.bnf))+' · '+priceTxt(H.bnf));
+    setH('cl_van','Vancouver · '+H.van[2]+', '+addr(H.van)+' · '+priceTxt(H.van));
+    setH('cl_sea','Seattle · '+H.sea[2]+', '+addr(H.sea)+' · '+priceTxt(H.sea));
+    // ---- flight out ----
+    var os=fo[6].filter(function(g){return g[0]==='s';}), ol=fo[6].filter(function(g){return g[0]==='l';});
+    var dep=os[0][2], arrRaw=os[os.length-1][4], arr=arrRaw.slice(0,5), nd=plus(arrRaw), arrM=tm(arr), depM=tm(dep);
+    var late=nd>0||arrM>=22*60, arrDay=nd?'Fri 11 June':'Thu 10 June';
+    setH('f_arr','Edmonton (YEG), '+arr+' on '+(nd?'11':'10')+' June');
+    setH('f_arrm','Leaves Manila '+dep+' on 10 June · '+fo[1].split(' via ')[0]+'');
+    setH('s1m', depM<12*60?'Fly from Manila':'Pack, rest');
+    var early=!nd&&arrM<17*60;
+    setH('s1a', depM>=12*60?'Fly from Manila':(early?'Land '+arr+', to hotel':'In flight'));
+    setH('s1e', early?'Dinner near the hotel':'Land '+arr+(late?', taxi to hotel':', to hotel'));
+    setH('d1s', nd?'Fly to Edmonton, land after midnight':'Fly to Edmonton, land '+arr);
+    var tag=document.getElementById('d1tag'); if(tag){ tag.hidden=!late; tag.textContent=nd?'Tell the hotel you arrive after midnight':'Tell the hotel you arrive late'; }
+    setH('d1ci', hh(depM-180));
+    var route='Manila → '+ol.map(function(l){return l[1];}).join(' → ')+(ol.length?' → ':'')+'Edmonton';
+    var stops=ol.map(function(l){return l[1]+' '+l[2]+' ('+(/^(Stay|Tight|Transfer)/.test(l[3])?l[3].charAt(0).toLowerCase()+l[3].slice(1):l[3])+')';}).join(', ');
+    setH('d1fl', li(dep,'Fly '+route, fo[1].split(' via ')[0]+'. Stops: '+stops+'. Google Flights on 6 Nov 2026: '+peso(fo[3])+' per person.'));
+    setH('d1land', li(arr, late?'Land at YEG, taxi to the hotel, ~35 min':'Land at YEG, to the hotel', late?'Flat-fare taxi, about CA$55–65 for the group (not checked for 2027). The airport bus is not practical at this hour.':'ETS Route 747 to Century Park, then Capital Line LRT downtown (60–75 min, CA$9 in 2026), or a flat-fare taxi (~35 min, CA$55–65 per car).'));
+    setH('d1chk', li('~'+hh(arrM+(late?60:90)),'Check in at the '+H.edm[2]+(late?', sleep':'')));
+    setH('d1meals', depM<12*60 ? '<li>Breakfast before leaving for the airport</li><li>Lunch on the plane</li><li>'+(early?'Dinner near the hotel':'Dinner on the plane')+'</li>' : '<li>Lunch before leaving for the airport</li><li>Dinner on the plane</li>');
+    var rem=document.getElementById('d1rem'); if(rem){ rem.hidden=!late; rem.textContent=nd?'Book the room from 10 June so it is held for a post-midnight arrival, and tell the hotel you check in late':'Tell the hotel you check in late'; }
+    // ---- day 4 check-in ----
+    setH('d4chk', banff ? li('17:15','Roam Route 3 to Banff, check in','About 25–30 min from Canmore, or a taxi with bags.') : li('17:15','Check in at '+H.bnf[2],'Short taxi from the bus stop with bags (distance not checked).'));
+    sw('b5a',banff,null);
+    sw('b5b',banff,li('14:00','Connector back, 8X to Banff','Take the return time on your reservation. Back in Banff ~16:45.'));
+    sw('b6a',banff,li('16:00','Free time on Banff Avenue, walk back to the hotel'));
+    sw('b7a',banff,li('09:30','Roam Route 6 to Lake Minnewanka','Free with a same-day cruise ticket. Leave about 45 min before sailing.'));
+    sw('b7b',banff,li('17:00','Bus back to Banff'));
+    // ---- day 9: coach + Calgary flight ----
+    var ddep=tm(dm[2]), darr=tm(dm[3]), bus=ddep-240;
+    setH('d9out', li(hh(bus-30),'Check out, breakfast to go'));
+    setH('d9bus', li('~'+hh(bus), AREA.bnf+' → Calgary airport, ~1½–2 h', (bus<7*60?'Early start: check the first coach of the day before booking this flight. ':'')+'Airport coaches from Banff also pick up in Canmore; check the 2027 stop list when booking. Plan cost uses est CA$40; Brewster Express and Banff Airporter run more often (est CA$75–95). Book ahead.'));
+    setH('d9fl', li(dm[2],'Fly YYC → YVR, '+dm[1]+', lands '+dm[3], 'Clock goes back 1 h. Google Flights on 6 Nov 2026: '+peso(dm[4])+' per person, before bag fees.'));
+    var xf=darr+30, xfTxt;
+    if(H.van[0]==='van1') xfTxt=li('~'+hh(xf),'Free Abercorn shuttle to the hotel','Runs about 04:00–23:30. Contact the hotel at least 24 h ahead to arrange the pickup.');
+    else if(H.van[0]==='van2') xfTxt=li('~'+hh(xf),'Canada Line YVR → Bridgeport, then the covered walkway to River Rock','About 15 min. A YVR AddFare applies from the airport stations.');
+    else xfTxt=li('~'+hh(xf),'Canada Line YVR → downtown, ~25–30 min','A YVR AddFare applies from the airport stations. Short walk or taxi to the hotel.');
+    setH('d9xf',xfTxt);
+    setH('d9chk', li(hh(Math.max(15*60,xf+60)),'Check in, rest'));
+    setH('xf_dom', dm[1]+' '+dm[2]+', or another Air Canada, Flair or WestJet flight');
+    // ---- Vancouver ----
+    sw('v10a',!rich,li('08:00','Breakfast near the hotel'));
+    sw('v10b',!rich,null);
+    sw('v10c',!rich,li('18:30','Dinner downtown, walk back, pack'));
+    sw('v11a',!rich,li('06:00','Taxi to Pacific Central Station, ~10 min','Book the night before. Eat at the station or on the train. Amtrak asks for early arrival for US border inspection.'));
+    var vn=H.van[2].split(',')[0];
+    setH('xf_yvr', H.van[0]==='van1' ? '<td>YVR → '+vn+'</td><td>Free hotel shuttle</td><td>~10 min</td><td class="r">Free</td><td>Canada Line to Bridgeport + 8 min walk</td>'
+      : H.van[0]==='van2' ? '<td>YVR → River Rock</td><td>Canada Line to Bridgeport, covered walkway</td><td>~15 min</td><td class="r">Compass fare + YVR AddFare</td><td>Taxi</td>'
+      : '<td>YVR → downtown hotel</td><td>Canada Line</td><td>~25–30 min</td><td class="r">Compass fare + YVR AddFare</td><td>Taxi</td>');
+    setH('xf_vdt', rich ? '<td>Richmond ↔ downtown</td><td>Canada Line from Bridgeport</td><td>~20–25 min</td><td class="r">In the DayPass</td><td>Taxi</td>' : '<td>Hotel ↔ sights</td><td>Walk, bus or SkyTrain</td><td>—</td><td class="r">In the DayPass</td><td>Taxi</td>');
+    setH('xf_pcs', rich ? '<td>Hotel → Pacific Central Station</td><td>Taxi</td><td>~20–25 min</td><td class="r">~CA$45 per taxi <span class="chip">est</span></td><td>Canada Line + Expo Line via Waterfront</td>' : '<td>Hotel → Pacific Central Station</td><td>Taxi</td><td>~10 min</td><td class="r">~CA$15–20 per taxi <span class="chip">est</span></td><td>Expo Line to Main Street–Science World</td>');
+    // ---- Seattle ----
+    sw('s11a',!seatac,li('12:15','Walk or short taxi to the hotel, drop bags','King Street Station is in Pioneer Square.'));
+    sw('s11b',!seatac,null);
+    sw('s12a',!seatac,li('08:45','Walk or Link to Colman Dock'));
+    sw('s13a',!seatac,li('~06:30','Walk or Link to the tour pick-up','Most tours collect downtown around 07:00.'));
+    sw('s13b',!seatac,li('~18:00','Back in Seattle, walk or Link to the hotel'));
+    setH('xf_sdt', seatac ? '<td>Hotel ↔ downtown Seattle</td><td>Link light rail from SeaTac/Airport, ORCA or tap</td><td>35–40 min</td><td class="r">US$3 flat</td><td>Taxi ~US$50–70</td>' : '<td>Hotel ↔ sights</td><td>Walk or Link light rail, ORCA or tap</td><td>—</td><td class="r">US$3 flat</td><td>Taxi</td>');
+    setH('xf_sea', H.sea[0]==='sea1' ? '<td>Hotel → SEA terminal</td><td>Free hotel shuttle</td><td>~5 min</td><td class="r">Free</td><td>Walk via the light rail station</td>' : '<td>Hotel → SEA terminal</td><td>Link light rail</td><td>~40 min</td><td class="r">US$3 flat</td><td>Taxi ~US$50–70</td>');
+    // ---- flight home ----
+    var hs=fh[6].filter(function(g){return g[0]==='s';}), hl=fh[6].filter(function(g){return g[0]==='l';});
+    var hdep=hs[0][2], harrRaw=hs[hs.length-1][4], harr=harrRaw.slice(0,5), hn=plus(harrRaw), hdepM=tm(hdep);
+    var landDay=hn===2?'Fri 25 June':'Thu 24 June', landShort=hn===2?'25 June':'24 June';
+    setH('f_dep','Seattle (SEA), '+hdep+' on 23 June');
+    setH('f_depm','Lands Manila '+harr+' on '+landShort+' · '+fh[1].split(' via ')[0]+'');
+    setH('f_dates','13 nights on the ground, home '+landShort);
+    var lateDep=hdepM>=18*60;
+    setH('s14m', lateDep?'Check out, free time':(hdepM<12*60?'Fly home '+hdep:'Check out, to the airport'));
+    setH('s14a', lateDep?'Free time in Seattle':(hdepM<12*60?'In flight':'Fly home '+hdep));
+    setH('s14e', lateDep?'Fly home '+hdep:'Manila '+landShort+', '+harr);
+    setH('d14s', lateDep?'Free day, late-night flight home':hdepM<12*60?'Morning flight home':'Midday flight home');
+    setH('d14meta','Overnight: on the plane · lands Manila '+harr+' on '+landDay);
+    var toAir=seatac?30:75, leave=hdepM-180-toAir, steps=[];
+    var hroute='Seattle → '+hl.map(function(l){return l[1];}).join(' → ')+(hl.length?' → ':'')+'Manila';
+    var leaveLi = seatac ? li(hh(leave),'Leave the hotel, free shuttle to the terminal','Or walk to SeaTac/Airport station and through the garage. Be at the airport 3 h before departure.')
+                         : li(hh(leave),'Link light rail to SeaTac/Airport, ~40 min','Be at the airport 3 h before departure.');
+    if(lateDep){
+      steps.push(['', li('11:00','Check out, leave bags at the hotel desk')]);
+      steps.push(['', li('12:00','Free afternoon in Seattle', seatac?'Link to Westlake, ~40 min. Be back at the hotel by '+hh(leave-15)+'.':'Be back at the hotel by '+hh(leave-15)+'.')]);
+      steps.push(['move', leaveLi]);
+    } else {
+      steps.push(['move', li(hh(leave),'Check out'+(seatac?', free hotel shuttle to the terminal':', Link light rail to SeaTac/Airport, ~40 min'), seatac?'Or walk to SeaTac/Airport station and through the garage. Be at the airport 3 h before departure.':'Be at the airport 3 h before departure.')]);
+      steps.push(['', li(hh(hdepM-120), hdepM<12*60?'Breakfast after security':'Lunch after security')]);
+    }
+    steps.push(['move', li(hdep,'Fly '+hroute, fh[1].split(' via ')[0]+(hl.length?'. Stops: '+hl.map(function(l){return l[1]+' '+l[2];}).join(', '):'')+'. Lands Manila '+harr+' on '+landDay+'. Google Flights on 6 Nov 2026: '+peso(fh[3])+' per person.')]);
+    setH('d14tl', steps.map(function(x){return '<li'+(x[0]?' class="move"':'')+'>'+x[1]+'</li>';}).join('\n'));
+    setH('d14meals', lateDep ? '<li>Breakfast: near the hotel</li><li>Lunch: in Seattle</li><li>Dinner: at the airport, then on the plane</li>'
+      : hdepM<12*60 ? '<li>Breakfast: after security</li><li>Lunch: on the plane</li><li>Dinner: on the plane</li>' : '<li>Breakfast: near the hotel</li><li>Lunch: after security</li><li>Dinner: on the plane</li>');
+  }
+  function render(){
+    var items=buildItems();
+    buildSummary(); syncItin();
+    for(var d=1; d<=14; d++){
+      var list=items.filter(function(i){return i.d===d;});
+      var byCur={CAD:0,USD:0}, totP=0;
+      list.forEach(function(i){var g=grp(i)/PAX; byCur[i.cur]+=g; totP+=php(g,i.cur);});
+      var local=[]; if(byCur.CAD) local.push(fmt(byCur.CAD,'CAD')); if(byCur.USD) local.push(fmt(byCur.USD,'USD'));
+      var s=document.querySelector('.dspend[data-day="'+d+'"]');
+      if(s) s.innerHTML='Est. per person<b>'+local.join(' + ')+'</b>('+fmt(totP,'PHP')+')';
+      var box=document.querySelector('.daybudget[data-detail="'+d+'"]');
+      if(box){
+        var rows=list.map(function(i){return '<tr><td>'+i.l+' <span class="muted">· '+(i.u==='pp'?'each':'room or group cost ÷ 3')+(i.src==='2026'?', 2026 price':i.src==='quote'?'':', est')+'</span></td><td>'+fmt(grp(i)/PAX,i.cur)+'</td></tr>';}).join('');
+        box.innerHTML='<table><tbody>'+rows+'<tr class="tot"><td>Day total per person</td><td>'+local.join(' + ')+' ≈ '+fmt(totP,'PHP')+'</td></tr></tbody></table>';
+      }
+    }
+    var cats=['Flights','Stay','Food','Transport','Attractions','Other'], catP={}, catL={}, sub=0, ground=0;
+    cats.forEach(function(c){catP[c]=0;catL[c]={CAD:0,USD:0,PHP:0};});
+    items.forEach(function(i){var g=grp(i),v=php(g,i.cur); catP[i.c]+=v; catL[i.c][i.cur]+=g; sub+=v; if(i.cur!=='PHP') ground+=v;});
+    var CONT=S.cont/100, cont=ground*CONT, total=sub+cont, pp=total/PAX, gap=pp-TARGET;
+    var sAll=document.getElementById('sumAll'); if(sAll) sAll.textContent=fmt(pp,'PHP');
+    var cls=Math.abs(gap)<2500?'ok':gap>0?'over':'under';
+    var gapTxt = cls==='ok' ? 'On target' : (gap>0 ? fmt(gap,'PHP')+' over' : fmt(-gap,'PHP')+' under');
+    var html='<div><span class="eyebrow">Per person, all in</span><b>'+fmt(pp,'PHP')+'</b><span class="gap '+cls+'">'+gapTxt+' vs ₱200,000</span></div>'+
+      '<div><span class="eyebrow">Trip total, 3 people</span><b>'+fmt(total,'PHP')+'</b><span class="muted">incl. flights</span></div>'+
+      '<div><span class="eyebrow">Daily average per person</span><b>'+fmt((total-catL.Flights.PHP)/PAX/14,'PHP')+'</b><span class="muted">on the ground</span></div>';
+    document.getElementById('totals').innerHTML=html;
+    var sb=document.getElementById('stickyTotal'); if(sb) sb.innerHTML='<span>Per person</span><b>'+fmt(pp,'PHP')+'</b><span class="gap '+cls+'">'+gapTxt+'</span>';
+    var max=Math.max.apply(null,cats.map(function(c){return catP[c];}).concat([cont]));
+    var label={Stay:'Accommodation'};
+    document.getElementById('bars').innerHTML=cats.map(function(c){return [label[c]||c,catP[c]];}).map(function(r){return '<div class="bar"><span>'+r[0]+'</span><span class="trk"><span class="fill" style="display:block;width:'+(max?r[1]/max*100:0).toFixed(1)+'%"></span></span><span class="v">'+fmt(r[1]/PAX,'PHP')+' pp</span></div>';}).join('');
+    var h='<thead><tr><th>Item</th><th class="basis">Basis</th><th class="r">Local, group</th><th class="r">Per person ₱</th><th class="r">Group ₱</th></tr></thead><tbody>';
+    cats.forEach(function(c){
+      var loc=[]; ['CAD','USD','PHP'].forEach(function(k){ if(catL[c][k]) loc.push(fmt(catL[c][k],k)); });
+      h+='<tr class="sub"><td colspan="2">'+(label[c]||c)+'</td><td class="r">'+loc.join(' + ')+'</td><td class="r">'+fmt(catP[c]/PAX,'PHP')+'</td><td class="r">'+fmt(catP[c],'PHP')+'</td></tr>';
+      items.filter(function(i){return i.c===c;}).forEach(function(i){
+        var g=grp(i),p=php(g,i.cur);
+        h+='<tr><td>'+(i.d?'Day '+i.d+' · ':'')+i.l+'</td><td class="basis">'+(i.c==='Stay'?'1 room for 3':i.u==='pp'?fmt(i.a,i.cur)+' × 3':'per group')+'</td><td class="r">'+fmt(g,i.cur)+'</td><td class="r">'+fmt(p/PAX,'PHP')+'</td><td class="r">'+fmt(p,'PHP')+'</td></tr>';
+      });
+    });
+    h+='<tr class="sub tt"><td colspan="3">Subtotal</td><td class="r">'+fmt(sub/PAX,'PHP')+'</td><td class="r">'+fmt(sub,'PHP')+'</td></tr>';
+
+    h+='<tr class="sub tt"><td colspan="3">Total</td><td class="r">'+fmt(pp,'PHP')+'</td><td class="r">'+fmt(total,'PHP')+'</td></tr></tbody>';
+    document.getElementById('btable').innerHTML=h; stackLabels(document.getElementById('btable'));
+    document.getElementById('fxNote').textContent='CA$1 = ₱'+FX.CAD.toFixed(2)+' · US$1 = ₱'+FX.USD.toFixed(2)+' · Google Finance, 6 Nov 2026';
+  }
+  var bsec=document.getElementById('budget');
+  document.addEventListener('click',function(e){
+    var pb=e.target.closest('[data-pick]'); if(!pb) return;
+    var pr=pb.dataset.pick.split(':'); S.hotel[pr[0]]=pr[1]; save(); renderControls(); render();
+  });
+  document.addEventListener('change',function(e){
+    var t=e.target;
+    if(t.name&&t.name.indexOf('h_')===0){ S.hotel[t.name.slice(2)]=t.value; }
+    else if(t.name==='f_out'){ S.out=t.value; } else if(t.name==='f_home'){ S.home=t.value; } else if(t.name==='f_dom'){ S.dom=t.value; }
+    else if(t.dataset.add){ S.add[t.dataset.add]=t.checked; }
+    else return;
+    save(); renderControls(); render();
+  });
+  bsec.addEventListener('click',function(e){
+    var b=e.target.closest('[data-seg]'); if(b){ var k=b.dataset.seg; S[k]= k==='cont'?Number(b.dataset.val):b.dataset.val; save(); renderControls(); render(); return; }
+    if(e.target.id==='resetPlan'){ S=JSON.parse(JSON.stringify(DEF)); save(); buildControls(); renderControls(); render(); }
+  });
+  buildControls(); renderControls(); render();
+
+  // ---------- food ----------
+  var food=[
+    {city:'Edmonton',list:[
+      ['Tres Carnales Taqueria','Downtown, Rice Howard Way','Mexican tacos','CA$25–30','Long-standing downtown favourite; once on Maclean\'s top 50 list. Days 1 and 3.'],
+      ['Duchess Bake Shop','124 Street NW','French pastry, coffee','CA$12–18','Edmonton\'s best-known bakery; repeat "best dessert" winner. Day 2 breakfast.'],
+      ['Café Bloom','Inside Muttart Conservatory','Café lunch','CA$20–25','Saves a trip back downtown on day 2.'],
+      ['Marlo','Just off Whyte Avenue','Oaxacan tacos, house tortillas','CA$30','Small, lively spot for the Old Strathcona evening.'],
+      ['Uccellino','Jasper Avenue, downtown','Italian (comfortable)','CA$55–70','Fodor\'s pick; book for a nicer night.']]},
+    {city:'Banff &amp; Lake Louise',list:[
+      ['Wild Flour Bakery','211 Bear St','Sourdough, pastries, breakfast sandwiches','CA$12–18','Opens 07:00, ideal for early bus days and packed lunches.'],
+      ['Bear Street Tavern','211 Bear St','Wood-fired pizza','CA$30','Casual and reliable; pizzas CA$18–24 in 2026.'],
+      ['Park Distillery','219 Banff Ave','Campfire-style rotisserie, own spirits','CA$55','Classic Banff dinner; mains CA$32–52.'],
+      ['Tooloulou\'s','204 Caribou St','Cajun-style breakfast and comfort food','CA$25','Hearty sit-down breakfast for the gondola day.'],
+      ['Eddie Burger + Bar','137 Banff Ave','Alberta beef burgers','CA$30','Quick, filling lunch.'],
+      ['Pad Thai Restaurant','Banff Avenue','Thai, budget','CA$20','Generous portions after a long day.'],
+      ['Nourish Bistro','211 Bear St','Vegetarian','CA$30','Lighter lunch on day 7.'],
+      ['The Bison','Bear Street','Regional Alberta (comfortable)','CA$80','The splurge dinner; book ahead.'],
+      ['Laggan\'s Mountain Bakery','Samson Mall, Lake Louise village','Bakery and deli','CA$12–18','Backup lunch near Lake Louise.'],
+      ['Trailhead Café','Samson Mall, Lake Louise village','Sandwiches, coffee','CA$15','07:00–18:00; next to Laggan\'s.']]},
+    {city:'Vancouver',list:[
+      ['Phnom Penh','244 E Georgia St, Chinatown','Cambodian–Vietnamese','CA$30','Michelin Bib Gourmand 2022; 10 min walk from the hotel. Day 9.'],
+      ['Jam Cafe','556 Beatty St','Big Southern-style brunch','CA$25','Walk-in queue; go before 09:00. Day 10.'],
+      ['Café Medina','200 Granville St (Granville Square)','Mediterranean brunch, waffles','CA$25','Alternative brunch near Waterfront.'],
+      ['Granville Island Public Market','Granville Island','Food stalls, seafood, baked goods','CA$15–20','Lunch on day 10.'],
+      ['Hokkaido Ramen Santouka','1690 Robson St','Ramen','CA$25','Easy dinner after the seawall.'],
+      ['Japadog','Downtown carts and shops','Japanese-style hot dogs','CA$10–12','Cheap, very Vancouver.'],
+      ['Chambar','Beatty St, near the hotel','Belgian (comfortable)','CA$70','Near Stadium–Chinatown station.']]},
+    {city:'Seattle',list:[
+      ['Pike Place Chowder','1530 Post Alley','Clam chowder','US$15–20','11:00–17:00 in 2026; try the sampler.'],
+      ['Piroshky Piroshky','1908 Pike Pl','Russian hand pies','US$8–12','Long line, moves fast; great walking food.'],
+      ['Beecher\'s Handmade Cheese','1600 Pike Pl','Mac &amp; cheese, cheese curds','US$10–14','09:00–19:00 in 2026; watch cheese being made.'],
+      ['Lowell\'s','1519 Pike Pl','Breakfast with Puget Sound views','US$25–35','Breakfast on day 12 before the ferry; sit upstairs.'],
+      ['Mee Sum Pastry','1526 Pike Pl','Hum bao','US$6','Quick snack.'],
+      ['Matt\'s in the Market','Corner Market Building, Pike Place','Seafood (comfortable)','US$60+','Book ahead for a last-night dinner.'],
+      ['Jimmy\'s on First','1046 1st Ave S, near King Street Station','American, Pacific Northwest','US$30–40','Easy dinner before the ride back.']]}
+  ];
+  document.getElementById('foodList').innerHTML=food.map(function(c){
+    return '<div class="foodcity"><h3>'+c.city+'</h3>'+c.list.map(function(p){
+      var q=encodeURIComponent(p[0].replace(/&amp;/g,'&')+' '+p[1]+' '+c.city.replace(/&amp;/g,'').replace(/ +/g,' '));
+      return '<div class="place"><a class="nm" href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" rel="noopener">'+p[0]+'</a><span class="pr">'+p[3]+'</span><span class="ds">'+p[1]+' · '+p[2]+'. '+p[4]+'</span></div>';
+    }).join('')+'</div>';
+  }).join('');
+
+  // ---------- souvenirs ----------
+  var SOUV=[
+    {city:'Edmonton · day 2 or 3',list:[
+      ['Edmonton Arts Council Shop','9930 102 Ave NW, Churchill Square','Edmonton-inspired art, books, tote bags, Indigenous art','Two minutes from the hotel. Best "made in Edmonton" pick.'],
+      ['Alberta Craft Council Shop','10186 106 St NW, downtown','Ceramics, wood, jewellery and textiles by Alberta artists','Walkable from the hotel.'],
+      ['Vivid Print','10342 82 Ave NW, Whyte Avenue','Edmonton and Alberta prints, historic photo prints','Fits the Whyte Avenue evening on day 2.'],
+      ['Premium Outlet Collection','Beside Edmonton airport, by Route 747','Brand outlets','Day 3 shopping trip.']]},
+    {city:'Lake Louise &amp; Moraine · day 5',list:[
+      ['Samson Mall shops, Lake Louise village','By Laggan\'s Bakery','Small gift and outdoor shops','Easy if you stop for lunch in the village. Shop list not checked.'],
+      ['Fairmont Château Lake Louise shops','At the lakeshore','Upscale Rockies gifts and apparel','Pricier, but right where you are.']]},
+    {city:'Banff · days 5–7',list:[
+      ['Banff Indian Trading Post','Banff town, near the Bow River','First Nations crafts, moccasins, jewellery, blankets','Banff\'s classic stop for Indigenous-made goods. Ask about the maker.'],
+      ['Rocky Mountain Soap Company','Banff Avenue','Soaps and body products from a Canmore-based maker','Light and packable.'],
+      ['Park Distillery shop','219 Banff Ave','Spirits distilled in Banff, cocktail kits, merch','You are already there for dinner on day 5.'],
+      ['Cascade Gifts, Rocky Mountain Gifts, The Bare Moose','Banff Avenue and Cascade Shops','Magnets, toques, socks, maple treats','Classic souvenir shops listed by Banff &amp; Lake Louise Tourism.'],
+      ['Banff Gondola gift shops','Base and summit, day 6','Gondola and Sulphur Mountain souvenirs','Easy add-on to the gondola day.']]},
+    {city:'Canmore · days 4 &amp; 8',list:[
+      ['Main Street shops, Canmore','Downtown Canmore','Local galleries, outdoor gear, gift shops','Quieter than Banff. Shop list not checked.']]},
+    {city:'Vancouver · day 10',list:[
+      ['Granville Island Public Market','Granville Island','Candied salmon, smoked salmon, maple, local snacks','On your route. Look for Authentic Indigenous Seafood candied salmon at Snack City.'],
+      ['Wickaninnish Gallery','Granville Island','Indigenous-owned gallery: art, décor, apparel','Best for meaningful Indigenous-made pieces.'],
+      ['Banquet Atelier &amp; Workshop','Granville Island','Bold-patterned linens, posters, cards','Flat, light gifts.'],
+      ['Shop Makers','Gastown (also Kitsilano)','Handmade stickers, earrings, candles, soap','Fits the Gastown walk on day 10; artisans keep 100% of sales.']]},
+    {city:'Bainbridge Island · day 12',list:[
+      ['Winslow Way shops','5 min walk from the ferry','Small local shops and cafés','Pick something on the island stroll. Shop list not checked.']]},
+    {city:'Seattle · days 11 &amp; 14',list:[
+      ['Made In Washington','Pike Place Market area, also at SEA airport','Work from ~250 regional makers: pottery, jewellery, food gifts','Last chance at the airport too.'],
+      ['Simply Seattle','1600 1st Ave and 1001 Alaskan Way','Seattle-themed gifts, socks, snacks','Right by the market and the waterfront.'],
+      ['Ye Olde Curiosity Shop','Seattle waterfront','Quirky souvenirs, a long-running Seattle institution','Fun browse on the waterfront walk.'],
+      ['KOBO Shop &amp; Gallery','602 S Jackson St, Chinatown-International District','Japanese and Northwest crafts in paper, metal, clay','Next to King Street Station.'],
+      ['Pike Place Market food gifts','Pike Place Market','Travel-packed smoked salmon, Chukar Cherries, Pike Place Nuts','Ask for travel packing.']]}
+  ];
+  document.getElementById('souvList').innerHTML=SOUV.map(function(c){
+    return '<div class="foodcity"><h3>'+c.city+'</h3>'+c.list.map(function(p){
+      var q=encodeURIComponent(p[0].replace(/&amp;/g,'&').replace(/\(.*\)/,'')+' '+p[1].replace(/&amp;/g,'&'));
+      return '<div class="place"><a class="nm" href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" rel="noopener">'+p[0]+'</a><span class="ds">'+p[2]+'</span><span class="ds">'+p[1]+' · '+p[3]+'</span></div>';
+    }).join('')+'</div>';
+  }).join('');
+  var SOUV_DAY={
+    2:'Vivid Print on Whyte Avenue for an Edmonton print',
+    3:'Premium Outlet Collection by the airport',
+    5:'Lake Louise: Samson Mall shops or the Château Lake Louise shops',
+    6:'Banff Gondola gift shop at the summit or base',
+    7:'Banff Avenue: Banff Indian Trading Post, Rocky Mountain Soap, Park Distillery',
+    8:'Canmore Main Street shops',
+    10:'Granville Island: candied salmon, Wickaninnish Gallery, Banquet Atelier',
+    12:'Winslow Way shops on Bainbridge Island',
+    11:'Pike Place: Made In Washington, Simply Seattle, food gifts packed for travel',
+    14:'Airport shops after security for last-minute food gifts'
+  };
+  Object.keys(SOUV_DAY).forEach(function(d){
+    var c=document.querySelector('#d'+d+' .cols');
+    if(c){ var b=document.createElement('div'); b.className='box'; b.innerHTML='<h5>Souvenir stop</h5><ul><li>'+SOUV_DAY[d]+'</li></ul>'; c.appendChild(b); }
+  });
+
+  // ---------- checklist ----------
+  var checks=[
+    ['Book Manila → Edmonton and Seattle → Manila flights (the ones picked in the Budget tab)','Now'],
+    ['Check every traveller holds a valid US visa; apply for Canada eTAs (CA$7)','Now'],
+    ['Book Sandman Signature Edmonton Downtown, 10–13 June (CA$745 quote)','Now'],
+    ['Book Grande Rockies Resort, Canmore, 13–18 June (room that sleeps 3, free cancellation)','Now'],
+    ['Book Abercorn Hotel, Richmond, 18–20 June, and SureStay SeaTac Airport North, 20–23 June (free cancellation)','Now'],
+    ['Buy travel insurance covering Canada and the US','After flights'],
+    ['Book Calgary → Vancouver flight on 18 June','Feb–Mar 2027'],
+    ['Book FlixBus Edmonton → Canmore for 13 June once the 2027 timetable is out','Mar–Apr 2027'],
+    ['Book Canmore → Calgary airport coach for 18 June','Mar–Apr 2027'],
+    ['Book Amtrak Cascades Vancouver → Seattle for 20 June; confirm departure time','Mar 2027'],
+    ['Book Roam Reservable Super Pass for 14 June (2026 June dates opened 23 April)','April 2027'],
+    ['Backup: Parks Canada shuttle seats (2026 launch was 15 April, 08:00 MDT)','April 2027'],
+    ['Book Banff Gondola and Lake Minnewanka cruise tickets online','May 2027'],
+    ['Book Mt Rainier tour for 22 June','May 2027'],
+    ['Optional: Sea to Sky Gondola (19 June)','May 2027'],
+    ['Buy Banff park passes for 14–16 June; check for any 2027 fee waiver','May–June 2027'],
+    ['Re-check Johnston Canyon trail status and the High Level Bridge Streetcar season','Early June 2027'],
+    ['Set up eSIM; load Arc, Compass and ORCA or use tap-to-pay cards','Before departure'],
+    ['Pack layers: warm hat and gloves for Moraine mornings, rain jackets, walking shoes','Before departure'],
+    ['Leave suitcase space for souvenirs; check Philippine customs rules on fish and meat products','Before departure'],
+    ['Complete Philippine eTravel within 72 h of landing home','21–23 June']
+  ];
+  var saved2={}; try{saved2=JSON.parse(localStorage.getItem('rk-checks3')||'{}')||{};}catch(e){saved2={};}
+  var cl=document.getElementById('checkList');
+  cl.innerHTML=checks.map(function(c,i){return '<label for="ck'+i+'"><input type="checkbox" id="ck'+i+'"'+(saved2[i]?' checked':'')+'><span>'+c[0]+'</span><span class="when">'+c[1]+'</span></label>';}).join('');
+  cl.addEventListener('change',function(e){ if(e.target.id){ saved2[e.target.id.slice(2)]=e.target.checked; try{localStorage.setItem('rk-checks3',JSON.stringify(saved2));}catch(err){} }});
+})();
+</script>
+
+</body></html>
